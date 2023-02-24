@@ -2,7 +2,7 @@ import React from "react";
 import { RxHamburgerMenu, RxDoubleArrowLeft,RxPlus } from "react-icons/rx";
 import { NavLink, useLocation } from "react-router-dom";
 
-const Navbar = ({showNews, setShowNews}) => {
+const Navbar = ({showNews, setShowNews, showModal, setShowModal}) => {
   const location = useLocation();
   return (
     <div className="w-full bg-[#645CBB] h-12 flex text-white pt-2">
@@ -26,7 +26,7 @@ const Navbar = ({showNews, setShowNews}) => {
         <RxDoubleArrowLeft className="hover:scale-125 transition duration-500"/>
         </NavLink>
       </div>
-      <div  className={`px-5 pt-2 ${location.pathname!="/Class" ? "hidden" : "block"}`}>
+      <div onClick={() => setShowModal(!showModal)} className={`px-5 cursor-pointer hover:scale-125 transition duration-500 pt-2 ${location.pathname!="/Class" ? "hidden" : "block"}`}>
         <RxPlus/>
       </div>
     </div>

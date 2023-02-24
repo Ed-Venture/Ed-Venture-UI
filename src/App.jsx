@@ -15,15 +15,19 @@ import {BrowserRouter as Router, Routes ,Route } from 'react-router-dom'
 import Sign_in from './pages/Sign_in'
 import Sign_up from './pages/Sign_up';
 import Sidebar from './components/Sidebar'
+import Modal from './components/Modal'
 
 function App() {
   const [showNews, setShowNews] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
   console.log(showNews);
   return (
     <div className="App">
     <Router>
-      <Navbar setShowNews={setShowNews} showNews={showNews}/>
+      <Navbar setShowNews={setShowNews} showNews={showNews} setShowModal={setShowModal} showModal={showModal}/>
       <Sidebar setShowNews={setShowNews} showNews={showNews} />
+      <Modal setShowModal={setShowModal} showModal={showModal}/>
       <Routes>
           <Route path="/" element={<Sign_in/>}/>
           <Route path="/Sign_up" element={<Sign_up/>}/>

@@ -7,7 +7,7 @@ export default function Class() {
     <div className="container flex flex-wrap">
       {ClassData.map((user) => (
         <NavLink to="/Class/:id/stream" style={{ textDecoration: "none" }}>
-          <div className="w-96 h-32 bg-gray-300 m-3 my-24 rounded-md relative">
+          <div className="w-96 h-32 bg-gray-300 m-3 my-24 rounded-md relative hover:shadow-2xl">
             <div className="p-3">
               <div className="text-xl">{user.classdesc}</div>
               <div>{user.sec}</div>

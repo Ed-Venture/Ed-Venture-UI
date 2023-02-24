@@ -17,7 +17,7 @@ const Sidebar = ({ showNews, setShowNews }) => {
           onClick={() => setShowNews(!showNews)}
         >
           <svg
-            className="h-9 w-9 text-white"
+            className="h-9 w-9 text-white hover:scale-125 transition duration-500"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"

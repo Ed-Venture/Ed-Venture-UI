@@ -2,11 +2,11 @@ import React from "react";
 import { RxHamburgerMenu, RxDoubleArrowLeft,RxPlus } from "react-icons/rx";
 import { NavLink, useLocation } from "react-router-dom";
 
-export default function Navbar() {
+const Navbar = ({showNews, setShowNews}) => {
   const location = useLocation();
   return (
     <div className="w-full bg-[#645CBB] h-12 flex text-white pt-2">
-      <div className="px-5 pt-2">
+      <div className="px-5 pt-2 cursor-pointer" onClick={() => setShowNews(!showNews)}>
         <RxHamburgerMenu />
       </div>
       <div className="text-xl basis-8/12">Classname</div>
@@ -32,3 +32,5 @@ export default function Navbar() {
     </div>
   );
 }
+
+export default Navbar;

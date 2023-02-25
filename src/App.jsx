@@ -20,19 +20,19 @@ function App() {
 	const [showNews, setShowNews] = useState(false)
 	const [showModal, setShowModal] = useState(false)
 
-	return (
-		<div className="App">
-			<Router>
-				<Navbar setShowNews={setShowNews} showNews={showNews} setShowModal={setShowModal} showModal={showModal} />
-				<Sidebar setShowNews={setShowNews} showNews={showNews} />
-				<Modal setShowModal={setShowModal} showModal={showModal} />
-				<Routes>
-					<Route path="/" element={<Sign_in />} />
-					<Route path="/Sign_up" element={<Sign_up />} />
-					<Route path="/Class" element={<Class />} />
-					<Route path="/quiz" element={<Quizzes />} />
-					<Route path="/quiz/:id" element={<Rank />} />
-					<Route path="/score" element={<Score />} />
+  return (
+    <div className="App">
+    <Router>
+      <Navbar setShowNews={setShowNews} showNews={showNews} setShowModal={setShowModal} showModal={showModal}/>
+      <Sidebar setShowNews={setShowNews} showNews={showNews} />
+      <Modal setShowModal={setShowModal} showModal={showModal}/>
+      <Routes>
+          <Route path="/" element={<Sign_in/>}/>
+          <Route path="/Sign_up" element={<Sign_up/>}/>
+          <Route path="/Class" element={<Class/>}/>
+          <Route path="/quiz" element={<Quizzes/>}/>
+          <Route path="/quiz/:id" element={<Rank/>}/>
+          <Route path="/score" element={<Score/>}/>
 
 					<Route path="/Class/:id/stream" element={<Stream />} />
 					<Route path="/Class/:id/assignment" element={<Assignment />} />

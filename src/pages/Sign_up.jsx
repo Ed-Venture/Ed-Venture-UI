@@ -30,7 +30,7 @@ function Sign_up() {
       }
   return (
     <div className='signIn'>
-        <h2 className='text-3xl pt-3 pl-6 absolute'>Application name</h2>
+        <h2 className='logo text-3xl pt-3 pl-10 absolute text-2xl'>edVenture</h2>
                 <img src={signinillustration} className='ill absolute bottom-0 left-0' />
         <div className='signIn-box'></div>
             <div className='signUp-container'>

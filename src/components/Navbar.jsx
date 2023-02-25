@@ -38,20 +38,21 @@ export default function Navbar({setShowNews,showNews}) {
         <RxDoubleArrowLeft className="hover:scale-125 transition duration-500"/>
         </NavLink>
       </div>
+      
       <div  className={`px-5 pt-2 ${location.pathname!="/Class" ? "hidden" : "block"}`}>
-        <RxPlus onClick={handlePop} className="cursor-pointer"/>
-      </div>
-      {pop &&
-      <CreateClass
-      pop={setPop}
-      />}
-      <div  className={`px-5 pt-1 ${location.pathname!="/Class" ? "hidden" : "block"}`}>
-        <div onClick={handlePopp} className="cursor-pointer">Join Class</div>
+        <div onClick={handlePopp} className="cursor-pointer text-xs">Join Class</div>
       </div> 
       
       {popp &&
       <Joinclass
       popp={setPopp}
+      />}
+      <div  className={`px-5 pt-2 ${location.pathname!="/Class" ? "hidden" : "block"}`}>
+        <RxPlus onClick={handlePop} className="cursor-pointer "/>
+      </div>
+      {pop &&
+      <CreateClass
+      pop={setPop}
       />}
     </div>
   );

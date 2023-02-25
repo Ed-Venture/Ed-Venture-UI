@@ -18,6 +18,7 @@
 -   [Proposed Solution](#proposed-solution)
 -   [Tech Stack Used](#tech-stack-used)
 -   [Design](#design)
+-   [Future Scope](#future-scope)
 -   [Contrbutions](#contrbutions)
 -   [Team Members](#team-members)
 
@@ -71,11 +72,20 @@
 
 ![line]
 
+## Future Scope
+
+-   Adding toast notifications
+-   Forgot and Reset Password
+-   Smooth Transitions
+-   Enhancement in UI/UX
+
+![line]
+
 ## Contrbutions
 
 -   [Shreya Jash] - Desiging, FrontEnd
 -   [Pritam Kundu] - Backend, Documentation
--   [Vishal Kumar]- FrontEnd, Project Management & Version Control
+-   [Vishal Kumar] - FrontEnd, Project Management & Version Control
 -   [Sayak Bhattacharjee] - CI/CD, Hosting
 
 ![line]

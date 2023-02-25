@@ -14,7 +14,7 @@ export default function Navbar({ setShowNews, showNews }) {
 	const handlePop = () => setPop(prev => !prev)
 	const handlePopp = () => setPopp(prev => !prev)
 
-	const { name: className, id } = JSON.parse(localStorage.getItem("class"))
+	const { name: className, id } = JSON.parse(localStorage.getItem("class") || "{}")
 	
 	const heading =
 		location.pathname === "/classes" ? (

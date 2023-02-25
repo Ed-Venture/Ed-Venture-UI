@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, documentId, getDoc, getDocs, query, updateDoc, where } from "firebase/firestore"
+import { addDoc, collection, doc, documentId, getDoc, getDocs, query, setDoc, updateDoc, where } from "firebase/firestore"
 import { db } from "../firebase"
 
 export const fetchUsers = async () => {
@@ -12,7 +12,7 @@ export const fetchUsers = async () => {
 export const fetchUser = async id => {
 	const ref = doc(db, "users", id)
 	const user = await getDoc(ref)
-	let result = {}
+	let result = null
 	if (user.exists()) result = { ...user.data(), id: user.id }
 	return result
 }
@@ -34,22 +34,35 @@ export const fetchClassesEnrolled = async id => {
 	return result
 }
 
+export const fetchClass = async id => {
+	const ref = doc(db, "classes", id)
+	const class_ = await getDoc(ref)
+	let result = null
+	if (class_.exists()) result = { ...class_.data(), id: class_.id }
+	return result
+}
+
 export const createUser = async data => {
 	const { emailId, name } = data
+	const exists = await userExists(emailId)
+	if (exists) {
+		return
+	}
 	const docRef = await addDoc(collection(db, "users"), {
 		classesEnrolled: [],
 		emailId,
 		name,
 		quizesParticipated: [],
 	})
-	console.log("created")
 	return docRef.id
 }
 
-export const userExists = async emailId => {
+const userExists = async emailId => {
 	const ref = query(collection(db, "users"), where("emailId", "==", emailId))
-	const user = await getDocs(ref)
-	return user.length
+	const users = await getDocs(ref)
+	const result = []
+	users.forEach(user => result.push(user))
+	return result.length > 0
 }
 
 export const createClass = async data => {
@@ -62,4 +75,20 @@ export const createClass = async data => {
 		students: [],
 	})
 	return docRef.id
+}
+
+export const joinClass = async data => {
+	const { userId, classId } = data
+	const class_ = doc(db, "classes", classId)
+	const user = doc(db, "users", userId)
+
+	const userData = await fetchUser(userId)
+	const classData = await fetchClass(classId)
+	if (!userData || !classData) {
+		return
+	}
+	// Add Student to class
+	await updateDoc(class_, { students: [...classData.students, userId] })
+	// Add ClassId in User
+	await updateDoc(user, { classesEnrolled: [...userData.classesEnrolled, classId] })
 }

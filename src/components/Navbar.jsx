@@ -23,7 +23,7 @@ export default function Navbar({ setShowNews, showNews }) {
 					<RxHamburgerMenu className="cursor-pointer" />
 				</div>
 				<div className="text-xl basis-8/12">{heading}</div>
-				<div className={`flex pt-1 ${location.pathname == "/Class" ? "hidden" : "block"}`}>
+				<div className={`flex pt-1 ${location.pathname == "/classes" ? "hidden" : "block"}`}>
 					<NavLink to="/Class/:id/stream" style={{ textDecoration: "none" }}>
 						<div className="px-3 hover:text-gray-300 transition duration-500">Stream</div>
 					</NavLink>

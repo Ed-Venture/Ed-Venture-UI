@@ -20,7 +20,7 @@ import AuthProvider from './context/AuthContext'
 function App() {
   const [showNews, setShowNews] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const location = useLocation();
+  //const location = useLocation();
 
   return (
 		<AuthProvider>

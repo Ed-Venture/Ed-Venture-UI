@@ -3,7 +3,7 @@ import { RxHamburgerMenu, RxDoubleArrowLeft,RxPlus } from "react-icons/rx";
 import { NavLink, useLocation } from "react-router-dom";
 import { useState } from "react";
 import CreateClass from "./createclass";
-export default function Navbar() {
+export default function Navbar({setShowNews,showNews}) {
   const [pop, setPop]=useState(false)
   const location = useLocation();
   const handlePop=()=>{
@@ -11,8 +11,8 @@ export default function Navbar() {
   }
   return (
     <div className="w-full bg-[#645CBB] h-12 flex text-white pt-2 relative">
-      <div className="px-5 pt-2">
-        <RxHamburgerMenu />
+      <div className="px-5 pt-2" onClick={() => setShowNews(!showNews)}>
+        <RxHamburgerMenu  className="cursor-pointer"/>
       </div>
       <div className="text-xl basis-8/12">Classname</div>
       <div className={`flex pt-1 ${location.pathname=="/Class" ? "hidden" : "block"}`}>

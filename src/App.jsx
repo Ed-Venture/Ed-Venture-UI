@@ -21,7 +21,6 @@ function App() {
   const [showNews, setShowNews] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  console.log(showNews);
   return (
     <div className="App">
     <Router>

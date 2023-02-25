@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState }   from 'react'
 import Class from './pages/Classes/Class'
 import Stream from './pages/Classroom/Stream/Stream'
 import People from './pages/Classroom/People/People'
@@ -14,12 +14,19 @@ import {BrowserRouter as Router, Routes ,Route } from 'react-router-dom'
 //Pages
 import Sign_in from './pages/Sign_in'
 import Sign_up from './pages/Sign_up';
+import Sidebar from './components/Sidebar'
+import Modal from './components/Modal'
 
 function App() {
+  const [showNews, setShowNews] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <div className="App">
     <Router>
-      <Navbar/>
+      <Navbar setShowNews={setShowNews} showNews={showNews} setShowModal={setShowModal} showModal={showModal}/>
+      <Sidebar setShowNews={setShowNews} showNews={showNews} />
+      <Modal setShowModal={setShowModal} showModal={showModal}/>
       <Routes>
           <Route path="/" element={<Sign_in/>}/>
           <Route path="/Sign_up" element={<Sign_up/>}/>

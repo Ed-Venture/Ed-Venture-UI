@@ -8,8 +8,8 @@ export default function Score() {
       {score_Data.map((info) => (
     <div className="bg-gray-100 h-fit rounded-md my-3 border-2 border-gray-100">
           <div className="pl-5 pt-3 text-xl">{info.Subject}</div>
-          <div className="bg-white h-2/6 mt-3 rounded-md flex  flex-wrap pl-5 pt-5 pb-3 sm:pb-0">
-            <div className="xl:basis-11/12 basis-7/12 pt-2 sm:pt-0">
+          <div className="bg-white h-2/6 mt-3 rounded-md flex  flex-wrap pl-10 pt-5 pb-3 sm:pb-0">
+            <div className="lg:basis-10/12 basis-7/12 pt-2 sm:pt-0">
               Score: {info.Score}/{info.TotalS}
             </div>
             <div className='pb-3'>

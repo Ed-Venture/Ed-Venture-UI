@@ -3,7 +3,7 @@ import React from "react"
 import { RxHamburgerMenu, RxDoubleArrowLeft, RxPlus } from "react-icons/rx"
 import { NavLink, useNavigate } from "react-router-dom"
 import { useState } from "react"
-import CreateClass from "./Createclass"
+import CreateClass from "./CreateClass"
 import { auth } from "../firebase"
 
 export default function Navbar({ setShowNews, showNews }) {

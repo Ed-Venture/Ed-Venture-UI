@@ -7,20 +7,20 @@ const Joinclass = prop => {
 	const [classCode, setClassCode] = useState("")
 	const [error, setError] = useState("")
 	const handleCancel = () => prop.popp(prev => !prev)
-    const navigate = useNavigate()
+	const navigate = useNavigate()
 	const handleChange = e => {
 		setClassCode(e.target.value)
 	}
 	const handleSubmit = async e => {
 		e.preventDefault()
-        setError()
-        const { id: userId } = await fetchUserByEmail(auth.currentUser?.email)
-        try {
-            await joinClass(userId, classCode)
-            handleCancel()
-            navigate("/")
-        } catch (e) {
-            console.log(e.message)
+		setError()
+		const { id: userId } = await fetchUserByEmail(auth.currentUser?.email)
+		try {
+			await joinClass(userId, classCode)
+			handleCancel()
+			navigate("/")
+		} catch (e) {
+			console.log(e.message)
 			setError("Error 404: Class code not found")
 		}
 	}
@@ -33,6 +33,7 @@ const Joinclass = prop => {
 			</h3>
 			<form className="flex flex-col items-center  justify-evenly h-[70%] w-[100%]" onSubmit={handleSubmit}>
 				<input
+					required
 					type="text"
 					className="w-[80%] h-[10%] p-4 placeholder:text-[rgba(0, 0, 0, 0.5)] text-[1.2rem] font-[500]  border border-[black] border-solid box-border text-slate-900"
 					placeholder="Enter Class Code"

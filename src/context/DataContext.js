@@ -75,12 +75,13 @@ const userExists = async emailId => {
 }
 
 export const createClass = async data => {
-	const { createdBy, name, section } = data
+	const { createdBy, name, section, subject } = data
 	const docRef = await addDoc(collection(db, "classes"), {
 		createdBy,
 		faculties: [],
 		name,
 		section,
+		subject,
 		students: [],
 	})
 	return docRef.id

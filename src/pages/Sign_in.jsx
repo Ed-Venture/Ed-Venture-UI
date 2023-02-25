@@ -46,7 +46,7 @@ function Sign_in() {
 							/>
 
 							<button type="submit" className="login_button h-10 rounded-md mb-8 bg-purple-700">
-								Login
+								<NavLink to="/Class">Login</NavLink>
 							</button>
 						</form>
 						<p className="text-center pb-5 font-semibold">-OR-</p>

@@ -17,19 +17,18 @@ export const AuthProvider = ({ children }) => {
 	const [loading, setLoading] = useState(true)
 	const provider = new GoogleAuthProvider()
 
-	const signIn = (email, password) => {
-		return signInWithEmailAndPassword(auth, email, password)
-	}
-	const signInWithGoogle = () => {
-		return signInWithPopup(auth, provider)
-	}
 	const signUp = (email, password) => {
 		return createUserWithEmailAndPassword(auth, email, password)
 	}
-
+	const signIn = (email, password) => {
+		return signInWithEmailAndPassword(auth, email, password)
+	}
 	const logOut = () => {
 		localStorage.removeItem("user")
 		signOut(auth)
+	}
+	const signInWithGoogle = () => {
+		return signInWithPopup(auth, provider)
 	}
 
 	useEffect(() => {
@@ -45,7 +44,7 @@ export const AuthProvider = ({ children }) => {
 		signUp,
 		signIn,
 		signInWithGoogle,
-		logOut,
+		logOut
 	}
 	return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>
 }

@@ -13,7 +13,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Sign_in from "./pages/Sign_in"
 import Sign_up from "./pages/Sign_up"
 import Sidebar from "./components/Sidebar"
-import Modal from "./components/Modal"
+// import Modal from "./components/Modal"
 import AuthProvider from "./context/AuthContext"
 import AuthRoute from "./routes/AuthRoute"
 import PrivateRoute from "./routes/PrivateRoute"
@@ -27,16 +27,16 @@ function App() {
 				<Router>
 					<Navbar setShowNews={setShowNews} showNews={showNews} setShowModal={setShowModal} showModal={showModal} />
 					<Sidebar setShowNews={setShowNews} showNews={showNews} />
-					<Modal setShowModal={setShowModal} showModal={showModal} />
+					{/* <Modal setShowModal={setShowModal} showModal={showModal} /> */}
 					<Routes>
-						<Route path="/" element={<Navigate to="logIn" />} />
+						<Route path="/" element={<Navigate to="/logIn" />} />
 						<Route path="/logIn" element={<AuthRoute component={<Sign_in />} />} />
 						<Route path="/signUp" element={<AuthRoute component={<Sign_up />} />} />
 						<Route path="/classes" element={<PrivateRoute component={<Class />} />} />
 						<Route path="/quizes" element={<PrivateRoute component={<Quizzes />} />} />
 
 						<Route path="/quiz/:id" element={<Rank />} />
-						<Route path="/score" element={<Score />} />
+						<Route path="/ranks" element={<Score />} />
 
 						<Route path="/Class/:id/stream" element={<Stream />} />
 						<Route path="/Class/:id/assignment" element={<Assignment />} />

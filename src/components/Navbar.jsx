@@ -1,13 +1,18 @@
 import React from "react";
 import { RxHamburgerMenu, RxDoubleArrowLeft,RxPlus } from "react-icons/rx";
 import { NavLink, useLocation } from "react-router-dom";
-
-const Navbar = ({showNews, setShowNews, showModal, setShowModal}) => {
+import { useState } from "react";
+import CreateClass from "./createclass";
+export default function Navbar() {
+  const [pop, setPop]=useState(false)
   const location = useLocation();
+  const handlePop=()=>{
+   setPop(prev=>!prev)
+  }
   return (
-    <div className="w-full bg-[#645CBB] h-12 flex text-white pt-2">
-      <div className="px-5 cursor-pointer" onClick={() => setShowNews(!showNews)}>
-        <RxHamburgerMenu size={30} />
+    <div className="w-full bg-[#645CBB] h-12 flex text-white pt-2 relative">
+      <div className="px-5 pt-2">
+        <RxHamburgerMenu />
       </div>
       <div className="text-xl basis-8/12">Classname</div>
       <div className={`flex pt-1 ${location.pathname=="/Class" ? "hidden" : "block"}`}>
@@ -26,11 +31,13 @@ const Navbar = ({showNews, setShowNews, showModal, setShowModal}) => {
         <RxDoubleArrowLeft className="hover:scale-125 transition duration-500"/>
         </NavLink>
       </div>
-      <div onClick={() => setShowModal(!showModal)} className={`px-5 cursor-pointer hover:scale-125 transition duration-500 pt-2 ${location.pathname!="/Class" ? "hidden" : "block"}`}>
-        <RxPlus/>
+      <div  className={`px-5 pt-2 ${location.pathname!="/Class" ? "hidden" : "block"}`}>
+        <RxPlus onClick={handlePop} className="cursor-pointer"/>
       </div>
+      {pop &&
+      <CreateClass
+      pop={setPop}
+      />}
     </div>
   );
 }
-
-export default Navbar;

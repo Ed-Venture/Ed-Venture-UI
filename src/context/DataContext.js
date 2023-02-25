@@ -13,7 +13,7 @@ export const fetchUser = async id => {
 	const ref = doc(db, "users", id)
 	const user = await getDoc(ref)
 	let result = {}
-	if (user.exists()) result = user.data()
+	if (user.exists()) result = { ...user.data(), id: user.id }
 	return result
 }
 
@@ -32,6 +32,24 @@ export const fetchClassesEnrolled = async id => {
 	const result = []
 	classes.forEach(doc => result.push({ id: doc.id, ...doc.data() }))
 	return result
+}
+
+export const createUser = async data => {
+	const { emailId, name } = data
+	const docRef = await addDoc(collection(db, "users"), {
+		classesEnrolled: [],
+		emailId,
+		name,
+		quizesParticipated: [],
+	})
+	console.log("created")
+	return docRef.id
+}
+
+export const userExists = async emailId => {
+	const ref = query(collection(db, "users"), where("emailId", "==", emailId))
+	const user = await getDocs(ref)
+	return user.length
 }
 
 export const createClass = async data => {

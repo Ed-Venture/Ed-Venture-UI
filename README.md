@@ -53,14 +53,14 @@
 -   React: FrontEnd Developement
 -   Vite: FrontEnd Developement
 -   React Router: Routing
--   Railway: Hosting Services
+-   Vercel: Hosting Services
 -   React Icons: Icons
 -   Figma: Designing
 -   VsCode: Deveolpement
 -   Git & Github: Version Control
 -   Javascript, HTML, CSS: Languages
 
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![FireStore](https://img.shields.io/badge/Firestore-03cafc?style=for-the-badge&logo=Firebase&logoColor=white) ![Firebase](https://img.shields.io/badge/Firebase-fcba03?style=for-the-badge&logo=Firebase&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white) ![VSCODE](https://img.shields.io/badge/VSCode-%23007ACC.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![Github](https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![Vite](https://camo.githubusercontent.com/c1ee3046774b3a0f6165dbe7f4e8a323f583f21e48d60a4dba8edb49fc2463bc/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f566974652d4237334246453f7374796c653d666f722d7468652d6261646765266c6f676f3d76697465266c6f676f436f6c6f723d464644363245)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![FireStore](https://img.shields.io/badge/Firestore-03cafc?style=for-the-badge&logo=Firebase&logoColor=white) ![Firebase](https://img.shields.io/badge/Firebase-fcba03?style=for-the-badge&logo=Firebase&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white) ![VSCODE](https://img.shields.io/badge/VSCode-%23007ACC.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) ![VERCEL](https://camo.githubusercontent.com/2fae549118710fd8284be62292b9e9a6cdd561cb50d46f35938b08dc3fc2c4e7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f56657263656c2d3030303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d76657263656c266c6f676f436f6c6f723d7768697465) ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![Github](https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![Vite](https://camo.githubusercontent.com/c1ee3046774b3a0f6165dbe7f4e8a323f583f21e48d60a4dba8edb49fc2463bc/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f566974652d4237334246453f7374796c653d666f722d7468652d6261646765266c6f676f3d76697465266c6f676f436f6c6f723d464644363245)
 
 ![line]
 
@@ -89,7 +89,6 @@
 </div>
 
 ### Thank you everyone! 💚
-
 
 [line]: https://user-images.githubusercontent.com/75939390/137615281-3a875960-92cc-407f-97fe-fd2319bdb252.png
 [shreya jash]: https://github.com/Shreya-Jash

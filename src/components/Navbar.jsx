@@ -3,11 +3,18 @@ import { RxHamburgerMenu, RxDoubleArrowLeft,RxPlus } from "react-icons/rx";
 import { NavLink, useLocation } from "react-router-dom";
 import { useState } from "react";
 import CreateClass from "./createclass";
+import Joinclass from "./Joinclass"
+
 export default function Navbar({setShowNews,showNews}) {
   const [pop, setPop]=useState(false)
+  const [popp, setPopp]=useState(false)
+
   const location = useLocation();
   const handlePop=()=>{
    setPop(prev=>!prev)
+  }
+  const handlePopp=()=>{
+    setPopp(prev=>!prev)
   }
   return (
     <div className="w-full bg-[#645CBB] h-12 flex text-white pt-2 relative">
@@ -37,6 +44,14 @@ export default function Navbar({setShowNews,showNews}) {
       {pop &&
       <CreateClass
       pop={setPop}
+      />}
+      <div  className={`px-5 pt-1 ${location.pathname!="/Class" ? "hidden" : "block"}`}>
+        <div onClick={handlePopp} className="cursor-pointer">Join Class</div>
+      </div> 
+      
+      {popp &&
+      <Joinclass
+      popp={setPopp}
       />}
     </div>
   );

@@ -14,7 +14,6 @@ import {BrowserRouter as Router, Routes ,Route, useLocation } from 'react-router
 import Sign_in from './pages/Sign_in'
 import Sign_up from './pages/Sign_up';
 import Sidebar from './components/Sidebar'
-import Modal from './components/Modal'
 import AuthProvider from './context/AuthContext'
 
 function App() {
@@ -28,7 +27,6 @@ function App() {
 				<Router>
 					 {location.pathname!='/' && location.pathname!='/Sign_up' && <Navbar setShowNews={setShowNews} showNews={showNews} setShowModal={setShowModal} showModal={showModal}/> }
 					<Sidebar setShowNews={setShowNews} showNews={showNews} />
-					<Modal setShowModal={setShowModal} showModal={showModal} />
 					<Routes>
 						<Route path="/" element={<Sign_in />} />
 						<Route path="/Sign_up" element={<Sign_up />} />

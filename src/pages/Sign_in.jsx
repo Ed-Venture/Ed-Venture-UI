@@ -2,18 +2,17 @@ import React, { useState } from "react"
 import "../styles/sign_in.css"
 import signinillustration from "../assets/illustrationSignin.png"
 
-import { NavLink, useNavigate } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 import GoogleIcon from "../assets/GoogleIcon.svg"
 import { useAuth } from "../context/AuthContext"
 import { auth } from "../firebase"
-import { createUser, userExists } from "../context/DataContext"
+import { createUser } from "../context/DataContext"
 
 function Sign_in() {
 	const [user, setUser] = useState({ email: "", password: "" })
 	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState("")
-	const navigate = useNavigate()
 	const { signIn, signInWithGoogle } = useAuth()
 	function handleChange(e) {
 		const { name, value } = e.target
@@ -25,7 +24,6 @@ function Sign_in() {
 		try {
 			setLoading(true)
 			await signIn(user.email, user.password)
-			navigate("/Class")
 		} catch (e) {
 			setError(`Failed to sign in, ${e.message}`)
 		}
@@ -38,10 +36,7 @@ function Sign_in() {
 			await signInWithGoogle()
 			// create user Item in Firestore if doesn't exist with same emailId
 			const { email: emailId, displayName: name } = auth.currentUser
-			if (!(await userExists(emailId))) {
-				await createUser({ emailId, name })
-			}
-			navigate("/Class")
+			if (emailId) await createUser({ emailId, name })
 		} catch (e) {
 			console.log(e)
 		}
@@ -77,9 +72,8 @@ function Sign_in() {
 								onChange={handleChange}
 							/>
 
-							<button type="submit" className="login_button h-10 rounded-md mb-8 bg-purple-700">
+							<button type="submit" disabled={loading} className="login_button h-10 rounded-md mb-8 bg-purple-700">
 								Log In
-
 							</button>
 						</form>
 						<p className="text-center pb-5 font-semibold">-OR-</p>

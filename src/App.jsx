@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      {location.pathname!='/' && <Navbar setShowNews={setShowNews} showNews={showNews} setShowModal={setShowModal} showModal={showModal}/> }
+      {location.pathname!='/' && location.pathname!='/Sign_up' && <Navbar setShowNews={setShowNews} showNews={showNews} setShowModal={setShowModal} showModal={showModal}/> }
       
       <Sidebar setShowNews={setShowNews} showNews={showNews} />
       <Modal setShowModal={setShowModal} showModal={showModal}/>

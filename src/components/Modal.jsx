@@ -24,7 +24,7 @@ export default function Modal({ showModal, setShowModal }) {
                     <div className="mb-5">
                         <input type="text" name="name"
                             className="w-full p-2 border border-gray-300 rounded-l shadow focus:outline-none focus:ring-2 focus:ring-purple-600"
-                            placeholder="className Name"/>
+                            placeholder="Class Name"/>
                     </div>
                     <div className="mb-5">
                         <input type="text" name="email" className="w-full p-2 border border-gray-300 rounded-l shadow"

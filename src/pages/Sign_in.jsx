@@ -36,7 +36,7 @@ function Sign_in() {
 			await signInWithGoogle()
 			// create user Item in Firestore if doesn't exist with same emailId
 			const { email: emailId, displayName: name } = auth.currentUser
-			if (emailId) await createUser({ emailId, name })
+			await createUser({ emailId, name })
 		} catch (e) {
 			console.log(e)
 		}
@@ -56,6 +56,7 @@ function Sign_in() {
 							<input //
 								type="email"
 								placeholder="Email Address"
+								required
 								className="login_input border-b-2 mb-10 pb-2"
 								name="email"
 								value={user.email}
@@ -63,6 +64,7 @@ function Sign_in() {
 							/>
 
 							<input
+								required
 								type="password"
 								className="login_input border-b-2 mb-10 pb-2"
 								placeholder="Password"
@@ -85,7 +87,7 @@ function Sign_in() {
 
 						<div className="loginend flex flex-row justify-center">
 							<p className="pr-20">Don't have account?</p>
-							<NavLink to="/Sign_up" className={`navi`}>
+							<NavLink to="/signUp" className={`navi`}>
 								Sign Up
 							</NavLink>
 						</div>

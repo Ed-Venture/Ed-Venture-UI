@@ -39,7 +39,7 @@ function App() {
 						<Route path="/ranks" element={<Score />} />
 
 						<Route path="/classes/:id/stream" element={<Stream />} />
-						<Route path="/Classes/:id/assignment" element={<Assignment />} />
+						<Route path="/classes/:id/assignment" element={<Assignment />} />
 						<Route path="/classes/:id/people" element={<People />} />
 					</Routes>
 				</Router>

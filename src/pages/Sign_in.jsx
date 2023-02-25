@@ -6,14 +6,15 @@ import { NavLink, useNavigate } from "react-router-dom"
 
 import GoogleIcon from "../assets/GoogleIcon.svg"
 import { useAuth } from "../context/AuthContext"
+import { auth } from "../firebase"
+import { createUser, userExists } from "../context/DataContext"
 
 function Sign_in() {
 	const [user, setUser] = useState({ email: "", password: "" })
 	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState("")
 	const navigate = useNavigate()
-	const { signIn } = useAuth()
-
+	const { signIn, signInWithGoogle } = useAuth()
 	function handleChange(e) {
 		const { name, value } = e.target
 		setUser({ ...user, [name]: value })
@@ -24,12 +25,26 @@ function Sign_in() {
 		try {
 			setLoading(true)
 			await signIn(user.email, user.password)
-			console.log(localStorage.getItem("user"))
 			navigate("/Class")
 		} catch (e) {
 			setError(`Failed to sign in, ${e.message}`)
 		}
 		setLoading(false)
+	}
+
+	const handleGoogleSignIn = async e => {
+		e.preventDefault()
+		try {
+			await signInWithGoogle()
+			// create user Item in Firestore if doesn't exist with same emailId
+			const { email: emailId, displayName: name } = auth.currentUser
+			if (!(await userExists(emailId))) {
+				await createUser({ emailId, name })
+			}
+			navigate("/Class")
+		} catch (e) {
+			console.log(e)
+		}
 	}
 	return (
 		<div className="signIn">
@@ -68,7 +83,7 @@ function Sign_in() {
 						</form>
 						<p className="text-center pb-5 font-semibold">-OR-</p>
 
-						<button className="google flex h-10 mb-5 p-1 rounded-md">
+						<button className="google flex h-10 mb-5 p-1 rounded-md" onClick={handleGoogleSignIn}>
 							<img src={GoogleIcon} className="googleicon h-7 w-7 pr-1" />
 							<div>Sign in using Google</div>
 						</button>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { fetchClassesByUser, fetchClassesEnrolled, fetchUserByEmail } from "../../context/DataContext"
 import { auth } from "../../firebase"
 const Class = () => {
@@ -7,7 +7,7 @@ const Class = () => {
 	const [fetching, setFetching] = useState(false)
 	const colors = ["bg-purple-700", "bg-red-700", "bg-green-300"]
 	useEffect(() => () => getClasses(), [])
-
+	const navigate = useNavigate()
 	const getClasses = async () => {
 		setFetching(true)
 		const { id: userId, name } = await fetchUserByEmail(auth.currentUser?.email)
@@ -33,20 +33,22 @@ const Class = () => {
 		setClasses(classes)
 		setFetching(false)
 	}
+	const handleClick = class_ => {
+		localStorage.setItem("class", JSON.stringify(class_))
+		navigate(`/classes/${class_.id}/stream`)
+	}
 	return (
 		<div className="container flex flex-wrap max-w-full">
 			{classes.length ? (
 				classes.map(class_ => (
-					<NavLink key={class_.id} to={`/Class/${class_.id}/stream`} style={{ textDecoration: "none" }}>
-						<div className="w-96 h-32 bg-gray-300 m-3 my-24 rounded-md relative hover:shadow-2xl">
-							<div className="p-3">
-								<div className="text-xl">{class_.name}</div>
-								<div>{class_.section}</div>
-							</div>
-							<div className="rounded-full bg-green-400 w-16 h-16 absolute left-72 top-12 pl-7 pt-5 text-white">{class_?.userName[0]}</div>
-							<div className={`h-48 mt-2 ${class_.color} rounded-md`} />
+					<div className="w-96 h-32 bg-gray-300 m-3 my-24 rounded-md relative hover:shadow-2xl" onClick={() => handleClick(class_)} key={class_.id}>
+						<div className="p-3">
+							<div className="text-xl">{class_.name}</div>
+							<div>{class_.section}</div>
 						</div>
-					</NavLink>
+						<div className="rounded-full bg-green-400 w-16 h-16 absolute left-72 top-12 pl-7 pt-5 text-white">{class_?.userName[0]}</div>
+						<div className={`h-48 mt-2 ${class_.color} rounded-md`} />
+					</div>
 				))
 			) : fetching ? (
 				<div className=" pl-7 pt-5 w-100 text-black">Fetching Your Classes...</div>

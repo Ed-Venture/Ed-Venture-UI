@@ -38,9 +38,9 @@ function App() {
 						<Route path="/quiz/:id" element={<Rank />} />
 						<Route path="/ranks" element={<Score />} />
 
-						<Route path="/Class/:id/stream" element={<Stream />} />
-						<Route path="/Class/:id/assignment" element={<Assignment />} />
-						<Route path="/Class/:id/people" element={<People />} />
+						<Route path="/classes/:id/stream" element={<Stream />} />
+						<Route path="/Classes/:id/assignment" element={<Assignment />} />
+						<Route path="/classes/:id/people" element={<People />} />
 					</Routes>
 				</Router>
 			</div>

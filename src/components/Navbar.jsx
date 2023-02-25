@@ -40,14 +40,14 @@ export default function Navbar({ setShowNews, showNews }) {
 					</NavLink>
 				</div>
 
-				<div className={`px-5 pt-2 ${location.pathname != "/Class" ? "hidden" : "block"}`}>
+				<div className={`px-5 pt-2 ${location.pathname != "/classes" ? "hidden" : "block"}`}>
 					<div onClick={handlePopp} className="cursor-pointer text-xs">
 						Join Class
 					</div>
 				</div>
 
 				{popp && <Joinclass popp={setPopp} />}
-				<div className={`px-5 pt-2 ${location.pathname != "/Class" ? "hidden" : "block"}`}>
+				<div className={`px-5 pt-2 ${location.pathname != "/classes" ? "hidden" : "block"}`}>
 					<RxPlus onClick={handlePop} className="cursor-pointer " />
 				</div>
 				{pop && <CreateClass pop={setPop} />}

@@ -7,8 +7,7 @@ import Quizzes from './pages/Quiz/Quizzes/Quizzes'
 import Rank from './pages/Quiz/Rank/Rank'
 import Score from './pages/Quiz/Score/Score'
 import Navbar from './components/Navbar'
-import { useLocation } from "react-router-dom";
-import {BrowserRouter as Router, Routes ,Route } from 'react-router-dom'
+import {BrowserRouter as Router, Routes ,Route, useLocation } from 'react-router-dom'
 
 
 //Pages
@@ -21,12 +20,13 @@ import AuthProvider from './context/AuthContext'
 function App() {
   const [showNews, setShowNews] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const location = useLocation();
 
   return (
 		<AuthProvider>
 			<div className="App">
 				<Router>
-					<Navbar setShowNews={setShowNews} showNews={showNews} setShowModal={setShowModal} showModal={showModal} />
+					 {location.pathname!='/' && location.pathname!='/Sign_up' && <Navbar setShowNews={setShowNews} showNews={showNews} setShowModal={setShowModal} showModal={showModal}/> }
 					<Sidebar setShowNews={setShowNews} showNews={showNews} />
 					<Modal setShowModal={setShowModal} showModal={showModal} />
 					<Routes>
@@ -44,6 +44,7 @@ function App() {
 				</Router>
 			</div>
 		</AuthProvider>
+
   )
 }
 

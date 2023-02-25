@@ -1,11 +1,16 @@
 import React from "react";
 import { RxHamburgerMenu, RxDoubleArrowLeft,RxPlus } from "react-icons/rx";
 import { NavLink, useLocation } from "react-router-dom";
-
+import { useState } from "react";
+import CreateClass from "./createclass";
 export default function Navbar() {
+  const [pop, setPop]=useState(false)
   const location = useLocation();
+  const handlePop=()=>{
+   setPop(prev=>!prev)
+  }
   return (
-    <div className="w-full bg-[#645CBB] h-12 flex text-white pt-2">
+    <div className="w-full bg-[#645CBB] h-12 flex text-white pt-2 relative">
       <div className="px-5 pt-2">
         <RxHamburgerMenu />
       </div>
@@ -27,8 +32,12 @@ export default function Navbar() {
         </NavLink>
       </div>
       <div  className={`px-5 pt-2 ${location.pathname!="/Class" ? "hidden" : "block"}`}>
-        <RxPlus/>
+        <RxPlus onClick={handlePop} className="cursor-pointer"/>
       </div>
+      {pop &&
+      <CreateClass
+      pop={setPop}
+      />}
     </div>
   );
 }

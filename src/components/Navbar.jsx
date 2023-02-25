@@ -3,7 +3,7 @@ import React from "react"
 import { RxHamburgerMenu, RxDoubleArrowLeft, RxPlus } from "react-icons/rx"
 import { NavLink, useNavigate } from "react-router-dom"
 import { useState } from "react"
-import CreateClass from "./createclass"
+import CreateClass from "./Createclass"
 import { auth } from "../firebase"
 
 export default function Navbar({ setShowNews, showNews }) {
@@ -14,8 +14,8 @@ export default function Navbar({ setShowNews, showNews }) {
 	const handlePop = () => setPop(prev => !prev)
 	const handlePopp = () => setPopp(prev => !prev)
 
-	const className = localStorage.getItem("className")
-	console.log(className)
+	const { name: className, id } = JSON.parse(localStorage.getItem("class"))
+	
 	const heading =
 		location.pathname === "/classes" ? (
 			<NavLink to="/" style={{ textDecoration: "none" }} className="text-xl basis-8/12">
@@ -32,13 +32,13 @@ export default function Navbar({ setShowNews, showNews }) {
 				</div>
 				{heading}
 				<div className={`flex pt-1 ${location.pathname == "/classes" ? "hidden" : "block"}`}>
-					<NavLink to="/classes/:id/stream" style={{ textDecoration: "none" }}>
+					<NavLink to={`/classes/${id}/stream`} style={{ textDecoration: "none" }}>
 						<div className="px-3 hover:text-gray-300 transition duration-500">Stream</div>
 					</NavLink>
-					<NavLink to="/classes/:id/assignment" style={{ textDecoration: "none" }}>
+					<NavLink to={`/classes/${id}/assignment`} style={{ textDecoration: "none" }}>
 						<div className="px-3 hover:text-gray-300 transition duration-500">Assignment</div>
 					</NavLink>
-					<NavLink to="/classes/:id/people" style={{ textDecoration: "none" }}>
+					<NavLink to={`/classes/${id}/people`} style={{ textDecoration: "none" }}>
 						<div className="px-3 hover:text-gray-300 transition duration-500">People</div>
 					</NavLink>
 				</div>

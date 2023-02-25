@@ -86,18 +86,21 @@ export const createClass = async data => {
 	return docRef.id
 }
 
-export const joinClass = async data => {
-	const { userId, classId } = data
+export const joinClass = async (userId, classId) => {
 	const class_ = doc(db, "classes", classId)
 	const user = doc(db, "users", userId)
 
 	const userData = await fetchUser(userId)
 	const classData = await fetchClass(classId)
-	if (!userData || !classData) {
+	if (!classData) {
 		return
 	}
+	// Converted to set to avoid duplicacy
+	const students = new Set([...classData.students, userId])
+	const classesEnrolled = new Set([...userData.classesEnrolled, classId])
 	// Add Student to class
-	await updateDoc(class_, { students: [...classData.students, userId] })
+	await updateDoc(class_, { students: [...students] })
 	// Add ClassId in User
-	await updateDoc(user, { classesEnrolled: [...userData.classesEnrolled, classId] })
+	await updateDoc(user, { classesEnrolled: [...classesEnrolled] })
+	return true
 }

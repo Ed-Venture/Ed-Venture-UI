@@ -35,7 +35,7 @@ export default function Navbar({ setShowNews, showNews }) {
 					</NavLink>
 				</div>
 				<div className="px-5 pt-2">
-					<NavLink to="/Class" style={{ textDecoration: "none" }}>
+					<NavLink to="/Class" style={{ textDecoration: "none" }} onClick={() => navigate(-1)}>
 						<RxDoubleArrowLeft className="hover:scale-125 transition duration-500" />
 					</NavLink>
 				</div>

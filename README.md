@@ -1,13 +1,13 @@
     updated: Sunday, 26th February 2023
 
 <div align="center">
-    <a href="railway-hositng-link">
+    <a href="https://ed-venture-ui-git-dev-hackerracer.vercel.app/">
         <img width=500 src="https://user-images.githubusercontent.com/75939390/221270001-2383e5dd-7892-4691-b393-ea7d8483a2ec.png" alt="EdVenture">
     </a>
     <p style="font-family: roboto, calibri; font-size:12pt; font-style:italic"> ✨ Empowering the Future of Learning with Technology ✨</p>
 </div>
 
-# [EdVenture](railway-hosting-link)
+# [EdVenture](https://ed-venture-ui-git-dev-hackerracer.vercel.app/)
 
 ![line]
 

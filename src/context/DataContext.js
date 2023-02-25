@@ -8,7 +8,13 @@ export const fetchUsers = async () => {
 	users.forEach(doc => result.push({ id: doc.id, ...doc.data() }))
 	return result
 }
-
+export const fetchUserByEmail = async emailId => {
+	const ref = query(collection(db, "users"), where("emailId", "==", emailId))
+	const users = await getDocs(ref)
+	const result = []
+	users.forEach(user => result.push({ ...user.data(), id: user.id }))
+	return result[0]
+}
 export const fetchUser = async id => {
 	const ref = doc(db, "users", id)
 	const user = await getDoc(ref)
@@ -27,9 +33,12 @@ export const fetchClassesByUser = async id => {
 
 export const fetchClassesEnrolled = async id => {
 	const { classesEnrolled } = await fetchUser(id)
+	const result = []
+	if (!classesEnrolled.length) {
+		return result
+	}
 	const ref = query(collection(db, "classes"), where(documentId(), "in", classesEnrolled))
 	const classes = await getDocs(ref)
-	const result = []
 	classes.forEach(doc => result.push({ id: doc.id, ...doc.data() }))
 	return result
 }

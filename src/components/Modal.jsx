@@ -8,7 +8,7 @@ export default function Modal({ showModal, setShowModal }) {
     <div className="absolute inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50 z-50">
         <div className="max-w-2xl p-6 bg-[#645CBB]">
             <div className="flex items-center justify-between">
-                <h3 className="text-2xl text-white">Create className</h3>
+                <h3 className="text-2xl text-white">Create class</h3>
                 <div onClick={() => setShowModal(!showModal)}>
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 hover:text-white cursor-pointer" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">

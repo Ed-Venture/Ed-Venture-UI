@@ -24,7 +24,6 @@ export const AuthProvider = ({ children }) => {
 		return signInWithEmailAndPassword(auth, email, password)
 	}
 	const logOut = () => {
-		localStorage.removeItem("user")
 		signOut(auth)
 	}
 	const signInWithGoogle = () => {

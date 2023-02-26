@@ -16,8 +16,6 @@ export default function SubmitAssign({ showAssign, id: assignmentId }) {
 		try {
       const { id: classId } = JSON.parse(localStorage.getItem("class") || "{}")
       const fileUrl = await postSolutions(file, classId, assignmentId)
-      console.log(file, classId, assignmentId)
-      console.log(fileUrl)
 			const data = { assignmentId, fileUrl }
 			await submitResponse(data)
 			handleCancel()

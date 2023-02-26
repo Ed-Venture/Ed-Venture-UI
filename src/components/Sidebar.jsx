@@ -2,7 +2,7 @@ import { BiMedal } from "react-icons/bi"
 import { SiGoogleclassroom } from "react-icons/si"
 import { MdQuiz } from "react-icons/md"
 import { NavLink } from "react-router-dom"
-import Profile from "./Profile"
+import Profile from "./Modal/Profile"
 import { useState } from "react"
 
 const Sidebar = ({ showNews, setShowNews }) => {

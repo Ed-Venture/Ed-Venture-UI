@@ -24,11 +24,15 @@ export const fetchUser = async id => {
 }
 
 export const fetchClassesByUser = async id => {
-	const ref = query(collection(db, "classes"), where("createdBy", "==", id))
-	const classes = await getDocs(ref)
-	const result = []
-	classes.forEach(doc => result.push({ id: doc.id, ...doc.data() }))
-	return result
+	try {
+		const ref = query(collection(db, "classes"), where("createdBy", "==", id))
+		const classes = await getDocs(ref)
+		const result = []
+		classes.forEach(doc => result.push({ id: doc.id, ...doc.data() }))
+		return result
+	} catch (e) {
+		console.log(e)
+	}
 }
 
 export const fetchClassesEnrolled = async id => {

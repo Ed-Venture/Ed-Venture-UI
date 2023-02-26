@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, documentId, getDoc, getDocs, query, setDoc, updateDoc, where } from "firebase/firestore"
+import { addDoc, collection, doc, documentId, getDoc, getDocs, query, serverTimestamp, updateDoc, where } from "firebase/firestore"
 import { db } from "../firebase"
 
 export const fetchUsers = async () => {
@@ -96,6 +96,10 @@ export const joinClass = async (userId, classId) => {
 	if (!classData) {
 		return
 	}
+	if (userId === classData.createdBy) {
+		// can't join own classRoom
+		return
+	}
 	// Converted to set to avoid duplicacy
 	const students = new Set([...classData.students, userId])
 	const classesEnrolled = new Set([...userData.classesEnrolled, classId])
@@ -105,3 +109,29 @@ export const joinClass = async (userId, classId) => {
 	await updateDoc(user, { classesEnrolled: [...classesEnrolled] })
 	return true
 }
+
+export const createAnnouncement = async data => {
+	try {
+		const { userId, classId, text, userName } = data
+		const docRef = await addDoc(collection(db, "announcements"), {
+			classId,
+			createdBy: userId,
+			postedOn: serverTimestamp(),
+			text,
+			userName,
+		})
+		return docRef.id
+	} catch (e) {
+		console.log(e)
+	}
+}
+
+export const fetchAnnouncements = async classId => {
+	// try {
+	const ref = query(collection(db, "announcements"), where("classId", "==", classId))
+	const assignments = await getDocs(ref)
+	const result = []
+	assignments.forEach(doc => result.push({ id: doc.id, ...doc.data() }))
+	return result
+}
+export const deleteAnnouncement = async assignmentId => await deleteDoc(doc(db, "assignments", assignmentId))

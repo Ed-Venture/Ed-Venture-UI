@@ -26,8 +26,8 @@ const Joinclass = prop => {
 	}
 
 	return (
-		<div className="createclasspop absolute top-[6em] left-[5vw] flex flex-col h-[547px] w-[90vw] z-[1000] bg-[#645CBC] box-content border rounded-[10px] min-[895px]:w-[50vw] min-[895px]:left-[25vw]">
-			<div className="createclasspop-header h-[15%] w-[100%] box-border flex justify-center items-center text-[1.5rem] font-bold">Join Class</div>
+		<div className="createclasspop absolute top-[6em] left-[5vw] flex flex-col h-[350px] w-[90vw] z-[1000] bg-[#645CBC] box-content border rounded-[10px] min-[895px]:w-[50vw] min-[895px]:left-[25vw]">
+			<div className="createclasspop-header h-[15%] w-[100%] box-border flex justify-center items-center text-[1.5rem] font-bold mt-10">Join Class</div>
 			<h3 className="text-center text-red-500" style={{ display: error ? "block" : "none" }}>
 				{error}
 			</h3>
@@ -39,11 +39,11 @@ const Joinclass = prop => {
 					placeholder="Enter Class Code"
 					onChange={handleChange}
 				/>
-				<div className="h-[8%] flex justify-end items-end pr-[2em]">
-					<button className="mr-[2em] text-[1.5rem] text-[#C9C9C9] font-[700]" onClick={handleCancel}>
+				<div className="h-[8%] w-full flex justify-end items-end pr-[5em]">
+					<button className="mr-[2em] text-[1.5rem] text-[#C9C9C9] hover:text-[#C9C9C9]/90 font-[700]" onClick={handleCancel}>
 						Cancel
 					</button>
-					<button className="text-[1.5rem] text-[#C9C9C9] font-[700]" type="submit">
+					<button className="text-[1.5rem] text-[#C9C9C9] hover:text-[#C9C9C9]/90 font-[700]" type="submit">
 						Join
 					</button>
 				</div>

@@ -3,11 +3,13 @@ import { FiLogOut } from "react-icons/fi"
 import { auth } from "../../firebase"
 import { useAuth } from "../../context/AuthContext"
 import { fetchUserByEmail } from "../../context/DataContext"
-
+import { useNavigate } from "react-router"
 export default function Profile({ showProfile, setShowNews }) {
 	const [displayName, setDisplayName] = useState("")
 	const [email, setEmail] = useState("")
 	const { logOut } = useAuth()
+	const navigate = useNavigate()
+
 	useEffect(() => {
 		getDetails()
 	}, [showProfile])
@@ -29,6 +31,7 @@ export default function Profile({ showProfile, setShowNews }) {
 			await logOut()
 			showProfile(false)
 			setShowNews(false)
+			navigate("/")
 		} catch (e) {
 			console.log(e)
 		}

@@ -17,19 +17,19 @@ export default function Assignment() {
   Create
 </button>
         {AssignData.map((info) => (
-        <div className="h-36 bg-pink-100 my-7 rounded-md flex pt-7 pl-6">
-        <div className="bg-green-400 h-20 w-20 p-3 rounded-full">
+        <div className="h-36 bg-pink-100 my-7 rounded-md flex pt-2 md:pt-7 pl-6">
+        <div className="bg-green-400 h-12 w-12 md:h-20 md:w-20 p-3 mt-5 md:mt-0 rounded-full">
           <img src={note} />
         </div>
-        <div className="pt-3 pl-5 flex basis-11/12 mt-3">
-            <div className='basis-4/6 text-2xl '>
+        <div className=" pt-0 md:pt-3 pl-5 flex flex-wrap basis-11/12 mt-3">
+            <div className='basis-4/6 md:text-2xl text-lg '>
                 {info.desc}
             </div>
-            <div className='basis-1/6' onClick={handleSubmit}>
+            <div className='basis-1/6 mt-2 md:mt-0' onClick={handleSubmit}>
                 <FiPaperclip size={35} className="transition cursor-pointer duration-500 hover:scale-125"/>
             </div>
             {showAssign && <SubmitAssign showAssign={setShowAssign} />}
-            <div className='text-slate-400 text-xl pt-2'>
+            <div className='text-slate-400 text-md md:text-xl pt-2'>
                 {info.date}
             </div>
         </div>

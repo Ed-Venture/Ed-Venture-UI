@@ -1,12 +1,12 @@
-import React, {useRef} from "react";
-import { AiOutlinePlus } from "react-icons/ai";
+import React, { useRef } from "react"
+import { AiOutlinePlus } from "react-icons/ai"
 
-export default function SubmitAssign({showAssign}) {
-  const inputRef = useRef(null);
+export default function SubmitAssign({ showAssign }) {
+	const inputRef = useRef(null)
 
-  const handleClick = () => {
-    inputRef.current.click();
-  };
+	const handleClick = () => {
+		inputRef.current.click()
+	}
 
   const handleFileChange = event => {
     const fileObj = event.target.files && event.target.files[0];

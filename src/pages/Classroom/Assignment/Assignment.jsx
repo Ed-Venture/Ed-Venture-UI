@@ -57,7 +57,7 @@ export default function Assignment() {
 						</div>
 						<div className="text-slate-400 text-md md:text-xl pt-2">No Due Date</div>
 
-						{showAssign && <SubmitAssign showAssign={setShowAssign} />}
+						{showAssign && <SubmitAssign showAssign={setShowAssign} id={assignment.id} />}
 					</div>
 				</div>
 			))}

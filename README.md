@@ -83,10 +83,11 @@
 
 ## Contrbutions
 
--   [Shreya Jash] - Desiging, FrontEnd
+-   [Sayak Bhattacharjee] - Backend, Hosting
 -   [Pritam Kundu] - Backend, Documentation
 -   [Vishal Kumar] - FrontEnd, Project Management & Version Control
--   [Sayak Bhattacharjee] - CI/CD, Hosting
+-   [Shreya Jash] - Desiging, FrontEnd
+
 
 ![line]
 

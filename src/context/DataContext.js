@@ -114,23 +114,18 @@ export const joinClass = async (userId, classId, rollNo) => {
 }
 
 export const createAnnouncement = async data => {
-	try {
-		const { userId, classId, text, userName } = data
-		const docRef = await addDoc(collection(db, "announcements"), {
-			classId,
-			createdBy: userId,
-			postedOn: serverTimestamp(),
-			text,
-			userName,
-		})
-		return docRef.id
-	} catch (e) {
-		console.log(e)
-	}
+	const { userId, classId, text, userName } = data
+	const docRef = await addDoc(collection(db, "announcements"), {
+		classId,
+		createdBy: userId,
+		postedOn: serverTimestamp(),
+		text,
+		userName,
+	})
+	return docRef.id
 }
 
 export const fetchAnnouncements = async classId => {
-	// try {
 	const ref = query(collection(db, "announcements"), where("classId", "==", classId))
 	const assignments = await getDocs(ref)
 	const result = []

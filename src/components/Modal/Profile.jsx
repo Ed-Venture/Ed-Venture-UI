@@ -8,7 +8,10 @@ export default function Profile({ showProfile, setShowNews }) {
 	const [displayName, setDisplayName] = useState("")
 	const [email, setEmail] = useState("")
 	const { logOut } = useAuth()
-	useEffect(() => () => getDetails(), [showProfile])
+	useEffect(() => {
+		getDetails()
+	}, [showProfile])
+
 	const getDetails = async () => {
 		let user = auth.currentUser
 		let displayName = user.displayName

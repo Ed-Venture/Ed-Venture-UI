@@ -44,7 +44,7 @@ const Class = () => {
 			setFetching(false)
 		}
 		getClasses()
-	}, [classes])
+	}, [!classes.length])
 
 	return (
 		<div className="container flex flex-wrap max-w-full">

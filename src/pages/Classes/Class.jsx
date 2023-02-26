@@ -56,7 +56,7 @@ const Class = () => {
 							</div>
 							<div className="p-3 text-2xl pr-10">⚙️</div>
 						</div>
-						<div className="rounded-full bg-green-400 w-16 h-16 absolute left-60 sm:left-72 top-12 pl-7 pt-5 text-white">{class_?.userName[0]}</div>
+						<div className="rounded-full bg-green-400 w-16 h-16 absolute left-[15.5rem] sm:left-72 top-12 pl-7 pt-5 text-white">{class_?.userName[0]}</div>
 						<div className={`h-48 mt-2 ${class_.color} rounded-md hover:shadow-2xl`} />
 					</div>
 				))

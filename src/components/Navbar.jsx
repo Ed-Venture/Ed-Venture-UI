@@ -18,11 +18,11 @@ export default function Navbar({ setShowNews, showNews }) {
 
 	const heading =
 		location.pathname === "/classes" ? (
-			<NavLink to="/" style={{ textDecoration: "none" }} className="text-xl basis-8/12">
-				<div className="text-xl basis-8/12">EdVenture</div>{" "}
+			<NavLink to="/" style={{ textDecoration: "none" }} className="text-xl basis-10/12">
+				<div>EdVenture</div>{" "}
 			</NavLink>
 		) : (
-			<div className="text-xl basis-8/12">{className}</div>
+			<div>{className}</div>
 		)
 	return (
 		auth.currentUser && (
@@ -78,20 +78,21 @@ export default function Navbar({ setShowNews, showNews }) {
 						</div>
 					</NavLink>
 				</div>
-				<div className="px-5 pt-2">
+
+				<div className="px-4 pt-2">
 					<NavLink style={{ textDecoration: "none" }} onClick={() => navigate(-1)}>
 						<RxDoubleArrowLeft className="hover:scale-125 transition duration-500" />
 					</NavLink>
 				</div>
 
-				<div className={`px-5 pt-2 ${location.pathname != "/classes" ? "hidden" : "block"}`}>
-					<div onClick={handlePopp} className="cursor-pointer text-xs">
+				<div className={`px-3 pt-2 ${location.pathname != "/classes" ? "hidden" : "block"}`}>
+					<div onClick={handlePopp} className="cursor-pointer text-xs whitespace-nowrap">
 						Join Class
 					</div>
 				</div>
 
 				{popp && <Joinclass popp={setPopp} />}
-				<div className={`px-5 pt-2 ${location.pathname != "/classes" ? "hidden" : "block"}`}>
+				<div className={`px-4 pt-2 ${location.pathname != "/classes" ? "hidden" : "block"}`}>
 					<RxPlus onClick={handlePop} className="cursor-pointer" />
 				</div>
 				{pop && <CreateClass pop={setPop} />}

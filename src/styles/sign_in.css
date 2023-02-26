@@ -43,9 +43,10 @@
   .navi{
     background-color: rgba(100, 92, 187, 1);
     height: 30px;
-    width: 80px;
+    width: 100px;
     text-align: center;
     color: white;
+    border-radius: 20px;
   }
   
   .google{

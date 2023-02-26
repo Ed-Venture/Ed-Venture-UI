@@ -17,8 +17,8 @@ export default function SubmitAssign({showAssign}) {
   };
   const handleCancel = () => showAssign(prev => !prev)
   return (
-    <div className="createclasspop absolute top-[6em] left-[5vw] flex flex-col h-[360px] w-[90vw] z-[1000] bg-[#645CBC] box-content border rounded-[10px] min-[895px]:w-[36vw] min-[895px]:left-[30vw] p-5">
-      <button className="flex text-4xl text-white items-center cursor-pointer absolute right-10 top-6 z-50" onClick={handleCancel}>
+    <div className="createclasspop absolute top-[6em] left-[5vw] flex flex-col h-[360px] w-72 z-[1000] bg-[#645CBC] box-content border rounded-[10px] min-[895px]:w-[36vw] min-[895px]:left-[30vw] p-5">
+      <button className="flex text-4xl text-white items-center cursor-pointer absolute right-6 top-6 z-50" onClick={handleCancel}>
         <svg
           className="h-9 w-9 text-white hover:scale-125 transition duration-500"
           viewBox="0 0 24 24"
@@ -33,7 +33,7 @@ export default function SubmitAssign({showAssign}) {
         </svg>
       </button>
       <div className="flex-col content-center items-center self-center mt-10">
-      <div className="text-3xl mt-10 text-white ml-8">
+      <div className="text-3xl mt-10 text-white ml-5">
           Upload Assignment</div>   
         <div className="flex justify-end mt-10">
         <input
@@ -44,10 +44,10 @@ export default function SubmitAssign({showAssign}) {
       />
           <button
             type="button"
-            className=" bg-gray-300 dark:bg-blue-500 font-medium rounded-lg text-sm px-24 pr-28 py-2 text-center hover:bg-gray-300/90 text-xl" onClick={handleClick}
+            className=" bg-gray-300 dark:bg-blue-500 font-medium rounded-lg text-sm px-16 md:px-24 pr-28 py-2 text-center hover:bg-gray-300/90 text-xl flex flex-nowrap" onClick={handleClick}
           >
-            <AiOutlinePlus size={16} className="inline-block mr-4 mb-1 " />
-            Add PDF
+            <AiOutlinePlus size={28} className="mr-4 " />
+            <div className="whitespace-nowrap">Add PDF</div>
           </button>
         </div>
       </div>

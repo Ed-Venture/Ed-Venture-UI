@@ -25,7 +25,7 @@ export default function CreateAss({createAssign}) {
         <div className="flex justify-end mt-10">
           <button
             type="button"
-            class=" bg-gray-300 dark:bg-blue-500 font-medium rounded-lg text-sm px-16 md:px-24 flex flex-nowrap pr-28 py-2 text-center hover:bg-gray-300/90 text-xl"
+            className=" bg-gray-300 dark:bg-blue-500 font-medium rounded-lg text-sm px-16 md:px-24 flex flex-nowrap pr-28 py-2 text-center hover:bg-gray-300/90 text-xl"
           >
             <FaFileUpload size={28} className="inline-block mr-4 mb-1 " />
             <div className="whitespace-nowrap">Upload PDF</div>

@@ -95,7 +95,7 @@ const Stream = () => {
 							</div>
 						</div>
 					)}
-					<div className="h-36 bg-slate-300 my-10 rounded-md flex pt-7 pl-6">
+					<div className="h-36 bg-slate-300 my-10 rounded-md flex pt-7 pl-6 group relative cursor-pointer">
 						<div className="bg-green-400 h-20 w-20 p-3 rounded-full">
 							<img src={book} />
 						</div>
@@ -103,6 +103,7 @@ const Stream = () => {
 							<div className="text-xl">Study Material</div>
 							<div>12th December 2022</div>
 						</div>
+						<div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
 					</div>
 				</div>
 			)}

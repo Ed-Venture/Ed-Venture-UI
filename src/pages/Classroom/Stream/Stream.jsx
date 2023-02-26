@@ -12,7 +12,9 @@ const Stream = () => {
 	const [loading, setLoading] = useState(false)
 	const [announcement, setAnnouncement] = useState("")
 	const [announcements, setAnnouncements] = useState([])
-	useEffect(() => () => getData(), [])
+	useEffect(() => {
+		getData()
+	}, [])
 
 	const getData = async () => {
 		setLoading(true)
@@ -75,12 +77,9 @@ const Stream = () => {
 							</button>
 						</form>
 					</div>
-					{announcements.map((announcement) =>
+					{announcements.map(announcement => (
 						<div key={announcement.id} className="bg-slate-300 my-10 rounded-md flex pt-7 pl-6 h-auto pb-7" style={{ alignItems: "center" }}>
-							<div
-								className="  bg-green-400  h-20 w-20 p-3 rounded-full sm:w-[80px] text-white text-2xl flex justify-center"
-								style={{ alignItems: "center" }}
-							>
+							<div className="  bg-green-400  h-20 w-20 p-3 rounded-full sm:w-[80px] text-white text-2xl flex justify-center" style={{ alignItems: "center" }}>
 								<TfiAnnouncement />
 							</div>
 							<div className="pt-3 pl-5">
@@ -94,7 +93,7 @@ const Stream = () => {
 								</p>
 							</div>
 						</div>
-					)}
+					))}
 					<div className="h-36 bg-slate-300 my-10 rounded-md flex pt-7 pl-6 group relative cursor-pointer">
 						<div className="bg-green-400 h-20 w-20 p-3 rounded-full">
 							<img src={book} />

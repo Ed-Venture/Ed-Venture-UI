@@ -32,7 +32,7 @@ function Sign_up() {
 			setError("Not a valid Name")
 			return
 		}
-		if (!name.match(/^[A-Za-z]+$/)) {
+		if (!name.match(/^[A-Za-z\s]+$/)) {
 			setError("Illegal Characters in Name")
 			return
 		}

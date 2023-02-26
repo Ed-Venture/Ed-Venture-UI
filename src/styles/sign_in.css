@@ -67,8 +67,14 @@
       width: 520px;
       height: 500px;
       margin-top: 50px;
-      margin-left:50;
+      margin-left:50px;
       margin-right: 50px;
+    }
+    .navi{
+      width: 110px;
+      font-size: 12px;
+      text-align: center;
+      padding-top: 4px;
     }
   }
   

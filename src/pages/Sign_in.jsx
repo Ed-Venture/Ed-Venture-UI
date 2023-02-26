@@ -57,7 +57,7 @@ function Sign_in() {
 								type="email"
 								placeholder="Email Address"
 								required
-								className="login_input border-b-2 mb-10 pb-2"
+								className="login_input border-b-2 mb-10 pb-2 pl-2"
 								name="email"
 								value={user.email}
 								onChange={handleChange}
@@ -66,7 +66,7 @@ function Sign_in() {
 							<input
 								required
 								type="password"
-								className="login_input border-b-2 mb-10 pb-2"
+								className="login_input border-b-2 mb-10 pb-2 pl-2"
 								placeholder="Password"
 								autoComplete="new-password"
 								name="password"
@@ -74,7 +74,7 @@ function Sign_in() {
 								onChange={handleChange}
 							/>
 
-							<button type="submit" disabled={loading} className="login_button h-10 rounded-md mb-8 bg-purple-700">
+							<button type="submit" disabled={loading} className="login_button h-10 rounded-md mb-8 bg-purple-600 hover:bg-purple-800">
 								Log In
 							</button>
 						</form>

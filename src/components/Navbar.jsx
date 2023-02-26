@@ -22,7 +22,7 @@ export default function Navbar({ setShowNews, showNews }) {
 				<div>EdVenture</div>{" "}
 			</NavLink>
 		) : (
-			<div>{className}</div>
+			<div className="text-xl basis-10/12 hidden sm:block">{className}</div>
 		)
 	return (
 		auth.currentUser && (

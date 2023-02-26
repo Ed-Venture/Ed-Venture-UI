@@ -37,7 +37,8 @@ const CreateClass = prop => {
 		setLoading(false)
 	}
 	return (
-		<div className="createclasspop absolute top-[6em] left-[5vw] flex flex-col h-[547px] w-[90vw] z-[1000] bg-[#645CBC] box-content border rounded-[10px] min-[895px]:w-[50vw] min-[895px]:left-[25vw]">
+		<div className="createclasspop absolute top-[6em] left-[5vw] flex flex-col h-[420px] w-[90vw] z-[1000] bg-[#645CBC] box-content border rounded-[10px] min-[895px]:w-[50vw] min-[895px]:left-[25vw]
+		pt-5">
 			<div className="createclasspop-header h-[15%] w-[100%] box-border flex justify-center items-center text-[1.5rem] font-bold">Create Class</div>
 			<h3 className="text-center text-red-500" style={{ display: error ? "block" : "none" }}>
 				{error}
@@ -70,7 +71,7 @@ const CreateClass = prop => {
 					value={class_.subject}
 					onChange={handleChange}
 				/>
-				<div className="h-[8%] flex justify-end items-end pr-[2em]">
+				<div className="h-[8%] flex justify-end items-end">
 					<button disabled={loading} type="submit" className="mr-[2em] text-[1.5rem] text-[#C9C9C9] font-[700]" onClick={handleCancel}>
 						Cancel
 					</button>

@@ -35,9 +35,9 @@
 
 ## Problem Statement
 
--   The current education system requires a more efficient and effective way of conducting classes and assessments. With the increasing demand for online learning due to the pandemic, there is a need for an ed tech web app that allows users to create classes, generate quizzes, and view their rankings in real-time. The app should be built using React to provide a seamless and user-friendly experience.
+-   The current education system requires a more efficient and effective way of conducting classes and assessments. With the increasing demand for online learning due to the pandemic, there is a need for an ed tech web app that allows users to create classes, generate quizzes, and view their rankings in real time. The app should be built using React to provide a seamless and user-friendly experience.
 
--   The problem is that existing platforms often lack the necessary features or have a steep learning curve, which makes it difficult for teachers and students to adapt quickly. Furthermore, the lack of real-time feedback and personalized ranking systems often hinder the progress of students.
+-   The problem is that existing platforms often lack the necessary features or have a steep learning curve, which makes it difficult for teachers and students to adapt quickly. Furthermore, the lack of real-time feedback and personalized ranking systems often hinders the progress of students.
 
 ![line]
 
@@ -54,13 +54,13 @@
 -   Tailwind CSS: Styling
 -   FireStore: DataBase
 -   Firebase: User Authentication
--   React: FrontEnd Developement
--   Vite: FrontEnd Developement
+-   React: FrontEnd Development
+-   Vite: FrontEnd Development
 -   React Router: Routing
 -   Netlify: Hosting Services
 -   React Icons: Icons
 -   Figma: Designing
--   VSCode: Deveolpement
+-   VSCode: Development
 -   Git & Github: Version Control
 -   Javascript, HTML, CSS: Languages
 
@@ -89,7 +89,7 @@
 -   [Sayak Bhattacharjee] - Backend, Hosting
 -   [Pritam Kundu] - Backend, Documentation
 -   [Vishal Kumar] - FrontEnd, Project Management & Version Control
--   [Shreya Jash] - Desiging, FrontEnd
+-   [Shreya Jash] - Designing, FrontEnd
 
 
 ![line]
@@ -102,7 +102,7 @@
     </a>
 </div>
 
-### Thank you everyone! 💚
+### Thank you, everyone! 💚
 
 [line]: https://user-images.githubusercontent.com/75939390/137615281-3a875960-92cc-407f-97fe-fd2319bdb252.png
 [shreya jash]: https://github.com/Shreya-Jash

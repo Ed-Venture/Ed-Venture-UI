@@ -28,25 +28,34 @@ const Sidebar = ({ showNews, setShowNews }) => {
 				<div className="py-6 flex" style={{ color: "white" }}>
 					<SiGoogleclassroom size={32} />
 					<NavLink to="/classes" style={{ textDecoration: "none" }}>
-						<div className=" pl-7 text-lg" onClick={() => setShowNews(!showNews)}>
+          <p className="relative group">
+						<span className="pt-1 pl-7 text-lg" onClick={() => setShowNews(!showNews)}>
 							Classes
-						</div>
+						</span>
+            <span className="absolute -bottom-1 left-7 w-0 h-1 bg-white transition-all group-hover:w-full"></span>
+            </p>
 					</NavLink>
 				</div>
 				<div className="py-6 flex" style={{ color: "white" }}>
 					<MdQuiz size={32} />
 					<NavLink to="/quizes" style={{ textDecoration: "none" }}>
-						<div className="pt-1 pl-7 text-lg" onClick={() => setShowNews(!showNews)}>
+          <p className="relative group">
+						<span className="pt-1 pl-7 text-lg" onClick={() => setShowNews(!showNews)}>
 							Quizes
-						</div>
+						</span>
+            <span className="absolute -bottom-1 left-7 w-0 h-1 bg-white transition-all group-hover:w-full"></span>
+            </p>
 					</NavLink>
 				</div>
-				<div className="py-6 flex" style={{ color: "white" }}>
+				<div className="py-6 flex relative" style={{ color: "white" }}>
 					<BiMedal size={32} />
 					<NavLink to="/ranks" style={{ textDecoration: "none" }}>
-						<div className="pt-1 pl-7 text-lg" onClick={() => setShowNews(!showNews)}>
+          <p className="relative group">
+						<span className="pt-1 pl-7 text-lg" onClick={() => setShowNews(!showNews)}>
 							Rankings
-						</div>
+						</span>
+            <span className="absolute -bottom-1 left-7 w-0 h-1 bg-white transition-all group-hover:w-full"></span>
+            </p>
 					</NavLink>
 				</div>
 			</div>

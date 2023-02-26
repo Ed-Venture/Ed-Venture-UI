@@ -25,3 +25,9 @@ body{
 ::-webkit-scrollbar-thumb:hover {
   background: #555555d4; 
 }
+
+@layer base {
+  .font-outline-08 {
+    -webkit-text-stroke: 0.8px black;
+  }
+}

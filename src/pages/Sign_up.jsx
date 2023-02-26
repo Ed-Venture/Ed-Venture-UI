@@ -86,7 +86,7 @@ function Sign_up() {
 							onChange={handleChange}
 							value={user.cpassword}
 						/>
-						<button disabled={loading} className="register_button h-10 rounded-md mb-8 bg-purple-600 hover:bg-purple-800" type="submit">
+						<button disabled={loading} className="register_button h-10 rounded-md mb-8 bg-[#645CBB] hover:bg-purple-800" type="submit">
 							Sign Up
 						</button>
 						<div className="signinend flex flex-row justify-center">

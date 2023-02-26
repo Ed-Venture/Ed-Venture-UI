@@ -74,7 +74,7 @@ function Sign_in() {
 								onChange={handleChange}
 							/>
 
-							<button type="submit" disabled={loading} className="login_button h-10 rounded-md mb-8 bg-purple-600 hover:bg-purple-800">
+							<button type="submit" disabled={loading} className="login_button h-10 rounded-md mb-8 bg-[#645CBB] hover:bg-purple-800">
 								Log In
 							</button>
 						</form>

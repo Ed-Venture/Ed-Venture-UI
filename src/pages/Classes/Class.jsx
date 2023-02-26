@@ -7,7 +7,6 @@ const Class = () => {
 	const [classes, setClasses] = useState([])
 	const [fetching, setFetching] = useState(false)
 	const colors = ["bg-purple-700", "bg-red-700", "bg-green-500", "bg-blue-900", "bg-green-600", "bg-amber-400", "bg-cyan-400"]
-	useEffect(() => () => getClasses(), [])
 	const navigate = useNavigate()
 	const getClasses = async () => {
 		setFetching(true)
@@ -39,6 +38,7 @@ const Class = () => {
 		localStorage.setItem("class", JSON.stringify(class_))
 		navigate(`/classes/${class_.id}/stream`)
 	}
+	useEffect(() => () => getClasses(), [])
 	return (
 		<div className="container flex flex-wrap max-w-full">
 			{classes.length ? (

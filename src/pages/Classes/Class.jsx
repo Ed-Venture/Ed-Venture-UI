@@ -17,7 +17,7 @@ const Class = () => {
 	}
 	// useEffect(() => () => getClasses(), [])
 	useEffect(() => {
-		return async () => {
+		const getClasses = async () => {
 			setFetching(true)
 			console.log("useEffect Initiated")
 			const { id: userId, name } = await fetchUserByEmail(auth.currentUser?.email)
@@ -43,7 +43,8 @@ const Class = () => {
 			setClasses(classes)
 			setFetching(false)
 		}
-	}, [])
+		getClasses()
+	}, [classes])
 
 	return (
 		<div className="container flex flex-wrap max-w-full">

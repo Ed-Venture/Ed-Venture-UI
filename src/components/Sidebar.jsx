@@ -2,8 +2,13 @@ import { BiMedal } from "react-icons/bi"
 import { SiGoogleclassroom } from "react-icons/si"
 import { MdQuiz } from "react-icons/md"
 import { NavLink } from "react-router-dom"
+import Profile from "./Modal/Profile"
+import { useState } from "react"
 
 const Sidebar = ({ showNews, setShowNews }) => {
+	
+	const [showProfile, setShowProfile] = useState(false)
+	const handleProfile = () => setShowProfile(true)
 	return (
 		<div className={`top-0 left-0 w-full sm:w-[360px]  bg-[#645CBB] border-white border-2  p-10 pl-12 fixed h-full z-40  ease-in-out duration-300 ${showNews ? "block " : "hidden"}`}>
 			<button className="flex text-4xl text-white items-center cursor-pointer absolute right-10 top-6 z-50" onClick={() => setShowNews(!showNews)}>
@@ -21,9 +26,10 @@ const Sidebar = ({ showNews, setShowNews }) => {
 				</svg>
 			</button>
 			<div className="flex mt-7">
-				<img className="w-10 h-10 rounded-full mr-5" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Rounded avatar" />
+				<img className="w-10 h-10 rounded-full mr-5 ease-in-out duration-500 hover:cursor-pointer hover:rotate-6 hover:scale-125" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Rounded avatar"  onClick={handleProfile}/>
 				<div className="text-xl pt-2 text-gray-100">Person Name</div>
 			</div>
+			{showProfile && <Profile showProfile={setShowProfile} />}
 			<div className="mt-7 pl-2">
 				<div className="py-6 flex" style={{ color: "white" }}>
 					<SiGoogleclassroom size={32} />

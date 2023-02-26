@@ -1,6 +1,6 @@
 import React from 'react'
 import note from "../../../assets/images/note.png";
-import paperclip from "../../../assets/images/paperclip.png"
+import {FiPaperclip} from 'react-icons/fi'
 import {AssignData} from "./assignment_data";
 import { AiOutlinePlus} from 'react-icons/Ai';
 
@@ -22,7 +22,7 @@ export default function Assignment() {
                 {info.desc}
             </div>
             <div className='basis-1/6'>
-                <img src={paperclip} />
+                <FiPaperclip size={35} className="transition cursor-pointer duration-500 hover:scale-125"/>
             </div>
             <div className='text-slate-400 text-xl pt-2'>
                 {info.date}

@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { createClass, fetchUserByEmail } from "../context/DataContext"
-import { auth } from "../firebase"
+import { createClass, fetchUserByEmail } from "../../context/DataContext"
+import { auth } from "../../firebase"
 
 const CreateClass = prop => {
 	const [class_, setClass] = useState({

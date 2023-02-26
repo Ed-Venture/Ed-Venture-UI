@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { fetchUserByEmail, joinClass } from "../context/DataContext"
-import { auth } from "../firebase"
+import { fetchUserByEmail, joinClass } from "../../context/DataContext"
+import { auth } from "../../firebase"
 
 const Joinclass = prop => {
 	const [classCode, setClassCode] = useState("")

@@ -73,20 +73,20 @@ function Sign_up() {
 					<h3 className="text-center text-red-500" style={{ display: error ? "block" : "none" }}>
 						{error}
 					</h3>
-					<form autoComplete="off" className="register_form flex flex-col" onSubmit={handleSubmit}>
-						<input type="text" required placeholder="Your Name" className="register_input  border-b-2 mb-5 pb-2" name="name" onChange={handleChange} value={user.name} />
-						<input type="email" required placeholder="Your Email" className="register_input  border-b-2 mb-5 pb-2" name="email" onChange={handleChange} value={user.email} />
-						<input type="password" required placeholder="Password" className="register_input  border-b-2 mb-5 pb-2" name="password" onChange={handleChange} value={user.password} />
+					<form autoComplete="off" className="register_form flex flex-col pt-6" onSubmit={handleSubmit}>
+						<input type="text" required placeholder="Your Name" className="register_input  border-b-2 mb-5 pb-2 pl-2" name="name" onChange={handleChange} value={user.name} />
+						<input type="email" required placeholder="Your Email" className="register_input  border-b-2 mb-5 pb-2 pl-2" name="email" onChange={handleChange} value={user.email} />
+						<input type="password" required placeholder="Password" className="register_input  border-b-2 mb-5 pb-2 pl-2" name="password" onChange={handleChange} value={user.password} />
 						<input
 							type="password"
 							required
 							placeholder="Confirm Password"
-							className="register_input  border-b-2 mb-10 pb-2"
+							className="register_input  border-b-2 mb-10 pb-2 pl-2"
 							name="cpassword"
 							onChange={handleChange}
 							value={user.cpassword}
 						/>
-						<button disabled={loading} className="register_button h-10 rounded-md mb-8 bg-purple-700" type="submit">
+						<button disabled={loading} className="register_button h-10 rounded-md mb-8 bg-purple-600 hover:bg-purple-800" type="submit">
 							Sign Up
 						</button>
 						<div className="signinend flex flex-row justify-center">

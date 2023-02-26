@@ -52,7 +52,7 @@ export default function SubmitAssign({showAssign}) {
           </button>
         </div>
       </div>
-      <div className="flex justify-end mt-20 mr-7 text-2xl text-white hover:text-gray-200 hover:cursor-pointer">Mark Done</div>
+      <div className="flex justify-end mt-20 mr-7 text-2xl text-white hover:text-gray-200 hover:cursor-pointer" onClick={handleCancel}>Mark Done</div>
     </div>
   );
 }

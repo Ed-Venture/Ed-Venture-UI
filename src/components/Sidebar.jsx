@@ -10,7 +10,8 @@ const Sidebar = ({ showNews, setShowNews }) => {
 	const [showProfile, setShowProfile] = useState(false)
 	const handleProfile = () => setShowProfile(true)
 	return (
-		<div className={`top-0 left-0 w-full sm:w-[360px]  bg-[#645CBB] border-white border-2  p-10 pl-12 fixed h-full z-40  ease-in-out duration-300 ${showNews ? "block " : "hidden"}`}>
+		<div className={`top-0 w-full sm:w-[325px]  bg-[#645CBB] border-white border-2  p-10 pl-12 fixed h-full z-40  transition-transform ${showNews? "translate-x-0" : "-translate-x-full"
+	} items-center overflow-auto`}>
 			<button className="flex text-4xl text-white items-center cursor-pointer absolute right-10 top-6 z-50" onClick={() => setShowNews(!showNews)}>
 				<svg
 					className="h-9 w-9 text-white hover:scale-125 transition duration-500"

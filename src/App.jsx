@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState,useEffect} from "react"
 import Class from "./pages/Classes/Class"
 import Stream from "./pages/Classroom/Stream/Stream"
 import People from "./pages/Classroom/People/People"
@@ -8,6 +8,8 @@ import Rank from "./pages/Quiz/Rank/Rank"
 import Score from "./pages/Quiz/Score/Score"
 import Navbar from "./components/Navbar"
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
+import RiseLoader from "react-spinners/RiseLoader"
+
 
 //Pages
 import Sign_in from "./pages/Sign_in"
@@ -18,12 +20,39 @@ import AuthProvider from "./context/AuthContext"
 import AuthRoute from "./routes/AuthRoute"
 import PrivateRoute from "./routes/PrivateRoute"
 
+import "./App.css"
+
 function App() {
+	const [loading, setLoading] = useState(false);
 	const [showNews, setShowNews] = useState(false)
 	const [showModal, setShowModal] = useState(false)
+
+	useEffect(()=> {
+		setLoading(true)
+		setTimeout(() =>{
+			setLoading(false)
+		},2000)
+	},[])
+
 	return (
 		<AuthProvider>
 			<div className="App">
+				{
+					loading ?
+
+					<div className="loader"> 
+						<RiseLoader
+							color={'#645CBC'}
+							loading={loading}
+							size={30}
+							aria-label="Loading Spinner"
+							data-testid="loader"
+						/>
+				</div>
+					
+
+					:
+				
 				<Router>
 					<Navbar setShowNews={setShowNews} showNews={showNews} setShowModal={setShowModal} showModal={showModal} />
 					<Sidebar setShowNews={setShowNews} showNews={showNews} />
@@ -43,6 +72,7 @@ function App() {
 						<Route path="/classes/:id/people" element={<People />} />
 					</Routes>
 				</Router>
+				}
 			</div>
 		</AuthProvider>
 	)

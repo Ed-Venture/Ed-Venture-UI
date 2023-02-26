@@ -2,49 +2,47 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { fetchClassesByUser, fetchClassesEnrolled, fetchUserByEmail } from "../../context/DataContext"
 import { auth } from "../../firebase"
+
+
 const Class = () => {
-	console.log("in Classes")
 	const [classes, setClasses] = useState([])
 	const [fetching, setFetching] = useState(false)
 	const colors = ["bg-purple-700", "bg-red-700", "bg-green-500", "bg-blue-900", "bg-green-600", "bg-amber-400", "bg-cyan-400"]
 	const navigate = useNavigate()
-	// const getClasses = async () => {
+	useEffect(() => {
+		getClasses()
+	}, [!classes.length])
 
-	// }
+	const getClasses = async () => {
+		setFetching(true)
+		const { id: userId, name } = await fetchUserByEmail(auth.currentUser?.email)
+		const classesByUser = await fetchClassesByUser(userId)
+		const classesEnrolled = await fetchClassesEnrolled(userId)
+		const classes = []
+		classesByUser.forEach(async class_ => {
+			const randomColor = colors[Math.floor(Math.random() * colors.length)]
+			classes.push({
+				...class_,
+				userName: name,
+				color: randomColor,
+			})
+		})
+		classesEnrolled.forEach(async class_ => {
+			const randomColor = colors[Math.floor(Math.random() * colors.length)]
+			classes.push({
+				...class_,
+				userName: name,
+				color: randomColor,
+			})
+		})
+		setClasses(classes)
+		setFetching(false)
+	}
+
 	const handleClick = class_ => {
 		localStorage.setItem("class", JSON.stringify(class_))
 		navigate(`/classes/${class_.id}/stream`)
 	}
-	// useEffect(() => () => getClasses(), [])
-	useEffect(() => {
-		const getClasses = async () => {
-			setFetching(true)
-			console.log("useEffect Initiated")
-			const { id: userId, name } = await fetchUserByEmail(auth.currentUser?.email)
-			const classesByUser = await fetchClassesByUser(userId)
-			const classesEnrolled = await fetchClassesEnrolled(userId)
-			const classes = []
-			classesByUser.forEach(async class_ => {
-				const randomColor = colors[Math.floor(Math.random() * colors.length)]
-				classes.push({
-					...class_,
-					userName: name,
-					color: randomColor,
-				})
-			})
-			classesEnrolled.forEach(async class_ => {
-				const randomColor = colors[Math.floor(Math.random() * colors.length)]
-				classes.push({
-					...class_,
-					userName: name,
-					color: randomColor,
-				})
-			})
-			setClasses(classes)
-			setFetching(false)
-		}
-		getClasses()
-	}, [!classes.length])
 
 	return (
 		<div className="container flex flex-wrap max-w-full">

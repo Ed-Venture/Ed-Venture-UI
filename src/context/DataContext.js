@@ -24,33 +24,23 @@ export const fetchUser = async id => {
 }
 
 export const fetchClassesByUser = async id => {
-	console.log("fetching")
-	try {
-		const ref = query(collection(db, "classes"), where("createdBy", "==", id))
-		const classes = await getDocs(ref)
-		const result = []
-		classes.forEach(doc => result.push({ id: doc.id, ...doc.data() }))
-		return result
-	} catch (e) {
-		console.log(e)
-	}
+	const ref = query(collection(db, "classes"), where("createdBy", "==", id))
+	const classes = await getDocs(ref)
+	const result = []
+	classes.forEach(doc => result.push({ id: doc.id, ...doc.data() }))
+	return result
 }
 
 export const fetchClassesEnrolled = async id => {
-	console.log("fetching Enrolled")
-	try {
-		const { classesEnrolled } = await fetchUser(id)
-		const result = []
-		if (!classesEnrolled.length) {
-			return result
-		}
-		const ref = query(collection(db, "classes"), where(documentId(), "in", classesEnrolled))
-		const classes = await getDocs(ref)
-		classes.forEach(doc => result.push({ id: doc.id, ...doc.data() }))
+	const { classesEnrolled } = await fetchUser(id)
+	const result = []
+	if (!classesEnrolled.length) {
 		return result
-	} catch (e) {
-		console.log(e)
 	}
+	const ref = query(collection(db, "classes"), where(documentId(), "in", classesEnrolled))
+	const classes = await getDocs(ref)
+	classes.forEach(doc => result.push({ id: doc.id, ...doc.data() }))
+	return result
 }
 
 export const fetchClass = async id => {
@@ -124,23 +114,18 @@ export const joinClass = async (userId, classId, rollNo) => {
 }
 
 export const createAnnouncement = async data => {
-	try {
-		const { userId, classId, text, userName } = data
-		const docRef = await addDoc(collection(db, "announcements"), {
-			classId,
-			createdBy: userId,
-			postedOn: serverTimestamp(),
-			text,
-			userName,
-		})
-		return docRef.id
-	} catch (e) {
-		console.log(e)
-	}
+	const { userId, classId, text, userName } = data
+	const docRef = await addDoc(collection(db, "announcements"), {
+		classId,
+		createdBy: userId,
+		postedOn: serverTimestamp(),
+		text,
+		userName,
+	})
+	return docRef.id
 }
 
 export const fetchAnnouncements = async classId => {
-	// try {
 	const ref = query(collection(db, "announcements"), where("classId", "==", classId))
 	const assignments = await getDocs(ref)
 	const result = []

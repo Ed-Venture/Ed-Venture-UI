@@ -42,6 +42,13 @@ const Joinclass = prop => {
 					placeholder="Enter Class Code"
 					onChange={handleChange}
 				/>
+				<input
+					required
+					type="number"
+					className="w-[80%] h-[10%] p-4 placeholder:text-[rgba(0, 0, 0, 0.5)] text-[1.2rem] font-[500]  border border-[black] border-solid box-border text-slate-900"
+					placeholder="Enter Roll Number"
+					onChange={handleChange}
+				/>
 				<div className="h-[8%] w-full flex justify-end items-end pr-[5em]">
 					<button className="mr-[2em] text-[1.5rem] text-[#C9C9C9] hover:text-[#C9C9C9]/90 font-[700]" onClick={handleCancel}>
 						Cancel

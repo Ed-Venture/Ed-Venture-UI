@@ -82,12 +82,12 @@ export const createClass = async data => {
 		name,
 		section,
 		subject,
-		students: [],
+		students: {},
 	})
 	return docRef.id
 }
 
-export const joinClass = async (userId, classId) => {
+export const joinClass = async (userId, classId, rollNo) => {
 	const class_ = doc(db, "classes", classId)
 	const user = doc(db, "users", userId)
 
@@ -100,11 +100,14 @@ export const joinClass = async (userId, classId) => {
 		// can't join own classRoom
 		return
 	}
+	if (rollNo in classData.students) {
+		// can't join with duplicate roll no
+		return -1
+	}
 	// Converted to set to avoid duplicacy
-	const students = new Set([...classData.students, userId])
 	const classesEnrolled = new Set([...userData.classesEnrolled, classId])
 	// Add Student to class
-	await updateDoc(class_, { students: [...students] })
+	await updateDoc(class_, { students: { ...classData.students, [rollNo]: userId } })
 	// Add ClassId in User
 	await updateDoc(user, { classesEnrolled: [...classesEnrolled] })
 	return true

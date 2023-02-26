@@ -4,27 +4,31 @@ import { fetchUserByEmail, joinClass } from "../../context/DataContext"
 import { auth } from "../../firebase"
 
 const Joinclass = prop => {
-	const [classCode, setClassCode] = useState("")
+	const [data, setData] = useState({ classCode: "", rollNo: "" })
 	const [error, setError] = useState("")
 	const handleCancel = () => prop.popp(prev => !prev)
 	const navigate = useNavigate()
 	const handleChange = e => {
-		setClassCode(e.target.value)
+		const { name, value } = e.target
+		setData({ ...data, [name]: value })
 	}
 	const handleSubmit = async e => {
 		e.preventDefault()
 		setError()
 		const { id: userId } = await fetchUserByEmail(auth.currentUser?.email)
 		try {
-			const result = await joinClass(userId, classCode)
+			const { classCode, rollNo } = data
+			const result = await joinClass(userId, classCode, rollNo)
 			if (!result) {
-				throw "Error"
+				throw { message: "Error 404: Class Code not found" }
+			}
+			if (result === -1) {
+				throw { message: "Error 409: Error User Already Exists with same roll no" }
 			}
 			handleCancel()
 			navigate("/")
 		} catch (e) {
-			console.log(e.message)
-			setError("Error 404: Class code not found")
+			setError(`${e.message}`)
 		}
 	}
 
@@ -40,6 +44,8 @@ const Joinclass = prop => {
 					type="text"
 					className="w-[80%] h-[10%] p-4 placeholder:text-[rgba(0, 0, 0, 0.5)] text-[1.2rem] font-[500]  border border-[black] border-solid box-border text-slate-900"
 					placeholder="Enter Class Code"
+					name="classCode"
+					value={data.value}
 					onChange={handleChange}
 				/>
 				<input
@@ -47,6 +53,8 @@ const Joinclass = prop => {
 					type="number"
 					className="w-[80%] h-[10%] p-4 placeholder:text-[rgba(0, 0, 0, 0.5)] text-[1.2rem] font-[500]  border border-[black] border-solid box-border text-slate-900"
 					placeholder="Enter Roll Number"
+					name="rollNo"
+					value={data.rollNo}
 					onChange={handleChange}
 				/>
 				<div className="h-[8%] w-full flex justify-end items-end pr-[5em]">

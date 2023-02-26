@@ -24,6 +24,7 @@ export const fetchUser = async id => {
 }
 
 export const fetchClassesByUser = async id => {
+	console.log("fetching")
 	try {
 		const ref = query(collection(db, "classes"), where("createdBy", "==", id))
 		const classes = await getDocs(ref)
@@ -36,15 +37,20 @@ export const fetchClassesByUser = async id => {
 }
 
 export const fetchClassesEnrolled = async id => {
-	const { classesEnrolled } = await fetchUser(id)
-	const result = []
-	if (!classesEnrolled.length) {
+	console.log("fetching Enrolled")
+	try {
+		const { classesEnrolled } = await fetchUser(id)
+		const result = []
+		if (!classesEnrolled.length) {
+			return result
+		}
+		const ref = query(collection(db, "classes"), where(documentId(), "in", classesEnrolled))
+		const classes = await getDocs(ref)
+		classes.forEach(doc => result.push({ id: doc.id, ...doc.data() }))
 		return result
+	} catch (e) {
+		console.log(e)
 	}
-	const ref = query(collection(db, "classes"), where(documentId(), "in", classesEnrolled))
-	const classes = await getDocs(ref)
-	classes.forEach(doc => result.push({ id: doc.id, ...doc.data() }))
-	return result
 }
 
 export const fetchClass = async id => {

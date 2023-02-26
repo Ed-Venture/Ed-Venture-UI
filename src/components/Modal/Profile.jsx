@@ -1,7 +1,5 @@
 import React from "react";
 import {FiLogOut} from "react-icons/fi"
-import { useState } from "react";
-
 export default function Profile({showProfile}) {
     const handleCancel = () => showProfile(prev => !prev)
   return (

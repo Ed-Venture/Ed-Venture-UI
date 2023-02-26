@@ -26,7 +26,7 @@ const Sidebar = ({ showNews, setShowNews }) => {
 				</svg>
 			</button>
 			<div className="flex mt-7">
-				<img className="w-10 h-10 rounded-full mr-5" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Rounded avatar"  onClick={handleProfile}/>
+				<img className="w-10 h-10 rounded-full mr-5 ease-in-out duration-500 hover:cursor-pointer hover:rotate-6 hover:scale-125" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Rounded avatar"  onClick={handleProfile}/>
 				<div className="text-xl pt-2 text-gray-100">Person Name</div>
 			</div>
 			{showProfile && <Profile showProfile={setShowProfile} />}

@@ -5,7 +5,7 @@ import { auth } from "../../firebase"
 const Class = () => {
 	const [classes, setClasses] = useState([])
 	const [fetching, setFetching] = useState(false)
-	const colors = ["bg-purple-700", "bg-red-700", "bg-green-500", "bg-blue-900", "bg-green-600", "bg-amber-400"]
+	const colors = ["bg-purple-700", "bg-red-700", "bg-green-500", "bg-blue-900", "bg-green-600", "bg-amber-400", "bg-cyan-400"]
 	useEffect(() => () => getClasses(), [])
 	const navigate = useNavigate()
 	const getClasses = async () => {

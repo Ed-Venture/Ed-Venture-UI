@@ -1,7 +1,20 @@
-import React from "react";
+import React, {useRef} from "react";
 import { FaFileUpload } from "react-icons/fa";
 
 export default function CreateAss({createAssign}) {
+    const inputRef = useRef(null);
+
+  const handleClick = () => {
+    inputRef.current.click();
+  };
+
+  const handleFileChange = event => {
+    const fileObj = event.target.files && event.target.files[0];
+    if (!fileObj) {
+      return;
+    }
+    event.target.value = null;
+  };
   const handleCancel = () => createAssign(prev => !prev)
   return (
     <div className="createclasspop absolute top-[6em] left-[5vw] flex flex-col h-[360px] w-72 z-[1000] bg-[#645CBC] box-content border rounded-[10px] min-[895px]:w-[36vw] min-[895px]:left-[30vw] p-5">
@@ -23,9 +36,16 @@ export default function CreateAss({createAssign}) {
         <div className="text-3xl mt-10 text-white ml-5">
          Create Assignment</div>
         <div className="flex justify-end mt-10">
+        <input
+        style={{display: 'none'}}
+        ref={inputRef}
+        type="file"
+        accept=".pdf"
+        onChange={handleFileChange}
+      />
           <button
             type="button"
-            class=" bg-gray-300 dark:bg-blue-500 font-medium rounded-lg text-sm px-16 md:px-24 flex flex-nowrap pr-28 py-2 text-center hover:bg-gray-300/90 text-xl"
+            className=" bg-gray-300 dark:bg-blue-500 font-medium rounded-lg text-sm px-16 md:px-24 flex flex-nowrap pr-28 py-2 text-center hover:bg-gray-300/90 text-xl" onClick={handleClick}
           >
             <FaFileUpload size={28} className="inline-block mr-4 mb-1 " />
             <div className="whitespace-nowrap">Upload PDF</div>

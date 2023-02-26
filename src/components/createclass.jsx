@@ -7,7 +7,7 @@ const CreateClass = prop => {
 		name: "",
 		section: "",
 		subject: "",
-    })
+	})
 	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState("")
 	const handleCancel = () => {
@@ -17,22 +17,24 @@ const CreateClass = prop => {
 		const { name, value } = e.target
 		setClass({ ...class_, [name]: value })
 	}
-    const handleSubmit = async e => {
-        e.preventDefault()
+	const handleSubmit = async e => {
+		e.preventDefault()
 		const { name, section, subject } = class_
 		try {
+			setLoading(true)
 			const data = {
 				createdBy: (await fetchUserByEmail(auth.currentUser?.email)).id,
 				name,
 				section,
 				subject,
 			}
-            await createClass(data)
-            handleCancel()
+			await createClass(data)
+			handleCancel()
 			navigate("/")
 		} catch (e) {
 			setError(e.messaage)
 		}
+		setLoading(false)
 	}
 	return (
 		<div className="createclasspop absolute top-[6em] left-[5vw] flex flex-col h-[547px] w-[90vw] z-[1000] bg-[#645CBC] box-content border rounded-[10px] min-[895px]:w-[50vw] min-[895px]:left-[25vw]">

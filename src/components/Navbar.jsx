@@ -3,7 +3,7 @@ import React from "react"
 import { RxHamburgerMenu, RxDoubleArrowLeft, RxPlus } from "react-icons/rx"
 import { NavLink, useNavigate } from "react-router-dom"
 import { useState } from "react"
-import CreateClass from "./CreateClass"
+import CreateClass from "./Createclass"
 import { auth } from "../firebase"
 
 export default function Navbar({ setShowNews, showNews }) {
@@ -15,7 +15,7 @@ export default function Navbar({ setShowNews, showNews }) {
 	const handlePopp = () => setPopp(prev => !prev)
 
 	const { name: className, id } = JSON.parse(localStorage.getItem("class") || "{}")
-	
+
 	const heading =
 		location.pathname === "/classes" ? (
 			<NavLink to="/" style={{ textDecoration: "none" }} className="text-xl basis-8/12">
@@ -33,13 +33,49 @@ export default function Navbar({ setShowNews, showNews }) {
 				{heading}
 				<div className={`flex pt-1 ${location.pathname == "/classes" ? "hidden" : "block"}`}>
 					<NavLink to={`/classes/${id}/stream`} style={{ textDecoration: "none" }}>
-						<div className="px-3 hover:text-gray-300 transition duration-500">Stream</div>
+						<div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+							<div className="px-3 hover:text-gray-300 transition duration-500">Stream</div>
+							<div
+								style={{
+									backgroundColor: "white",
+									borderRadius: 15,
+									width: 90,
+									height: 15,
+									marginTop: 5,
+									display: location.pathname.endsWith("/stream") ? "block" : "none",
+								}}
+							/>
+						</div>
 					</NavLink>
 					<NavLink to={`/classes/${id}/assignment`} style={{ textDecoration: "none" }}>
-						<div className="px-3 hover:text-gray-300 transition duration-500">Assignment</div>
+						<div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+							<div className="px-3 hover:text-gray-300 transition duration-500">Assignment</div>
+							<div
+								style={{
+									backgroundColor: "white",
+									borderRadius: 15,
+									width: 125,
+									height: 15,
+									marginTop: 5,
+									display: location.pathname.endsWith("/assignment") ? "block" : "none",
+								}}
+							/>
+						</div>
 					</NavLink>
 					<NavLink to={`/classes/${id}/people`} style={{ textDecoration: "none" }}>
-						<div className="px-3 hover:text-gray-300 transition duration-500">People</div>
+						<div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+							<div className="px-3 hover:text-gray-300 transition duration-500">People</div>
+							<div
+								style={{
+									backgroundColor: "white",
+									borderRadius: 15,
+									width: 90,
+									height: 15,
+									marginTop: 5,
+									display: location.pathname.endsWith("/people") ? "block" : "none",
+								}}
+							/>
+						</div>
 					</NavLink>
 				</div>
 				<div className="px-5 pt-2">
@@ -56,7 +92,7 @@ export default function Navbar({ setShowNews, showNews }) {
 
 				{popp && <Joinclass popp={setPopp} />}
 				<div className={`px-5 pt-2 ${location.pathname != "/classes" ? "hidden" : "block"}`}>
-					<RxPlus onClick={handlePop} className="cursor-pointer " />
+					<RxPlus onClick={handlePop} className="cursor-pointer" />
 				</div>
 				{pop && <CreateClass pop={setPop} />}
 			</div>

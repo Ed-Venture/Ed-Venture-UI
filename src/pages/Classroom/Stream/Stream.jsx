@@ -2,6 +2,7 @@ import React from "react";
 import book from "../../../assets/images/book.png";
 
 export default function Stream() {
+  
   return (
     <div className="container p-5">
       <div className="h-52 bg-cyan-400 my-10 rounded-md pl-10 pt-20">

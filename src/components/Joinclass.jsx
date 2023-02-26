@@ -16,7 +16,10 @@ const Joinclass = prop => {
 		setError()
 		const { id: userId } = await fetchUserByEmail(auth.currentUser?.email)
 		try {
-			await joinClass(userId, classCode)
+			const result = await joinClass(userId, classCode)
+			if (!result) {
+				throw "Error"
+			}
 			handleCancel()
 			navigate("/")
 		} catch (e) {

@@ -2,7 +2,7 @@ import React from 'react'
 import note from "../../../assets/images/note.png";
 import {FiPaperclip} from 'react-icons/fi'
 import {AssignData} from "./assignment_data";
-import { AiOutlinePlus} from 'react-icons/Ai';
+import { AiOutlinePlus} from 'react-icons/ai';
 import { useState } from "react"
 import SubmitAssign from '../../../components/Modal/SubmitAssign';
 

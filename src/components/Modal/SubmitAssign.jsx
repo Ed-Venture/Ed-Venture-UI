@@ -1,5 +1,5 @@
 import React from "react";
-import { AiOutlinePlus } from "react-icons/Ai";
+import { AiOutlinePlus } from "react-icons/ai";
 
 export default function SubmitAssign({showAssign}) {
   const handleCancel = () => showAssign(prev => !prev)

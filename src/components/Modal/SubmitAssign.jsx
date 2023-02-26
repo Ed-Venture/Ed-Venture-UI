@@ -40,6 +40,7 @@ export default function SubmitAssign({showAssign}) {
         style={{display: 'none'}}
         ref={inputRef}
         type="file"
+        accept=".pdf"
         onChange={handleFileChange}
       />
           <button

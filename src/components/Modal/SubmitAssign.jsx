@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react"
 import { AiOutlinePlus } from "react-icons/ai"
 import { submitResponse } from "../../context/DataContext"
+import { postSolutions } from "../../context/StorageContext"
 
 export default function SubmitAssign({ showAssign, id: assignmentId }) {
 	const inputRef = useRef(null)
@@ -14,7 +15,8 @@ export default function SubmitAssign({ showAssign, id: assignmentId }) {
     setError()
 		try {
       const { id: classId } = JSON.parse(localStorage.getItem("class") || "{}")
-			const fileUrl = await uploadFile(file, classId, assignmentId)
+      const fileUrl = await postSolutions(file, classId, assignmentId)
+      console.log(file, classId, assignmentId)
       console.log(fileUrl)
 			const data = { assignmentId, fileUrl }
 			await submitResponse(data)
@@ -50,6 +52,9 @@ export default function SubmitAssign({ showAssign, id: assignmentId }) {
 			</button>
 			<div className="flex-col content-center items-center self-center mt-10">
 				<div className="text-3xl mt-10 text-white ml-5">Upload Assignment</div>
+				<h3 className="text-center text-red-500" style={{ display: error ? "block" : "none" }}>
+					{error}
+				</h3>
 				<div className="flex justify-end mt-10">
 					<input style={{ display: "none" }} ref={inputRef} type="file" accept=".pdf" onChange={handleFileChange} />
 					<button

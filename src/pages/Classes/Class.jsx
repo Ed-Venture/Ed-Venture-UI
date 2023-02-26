@@ -11,7 +11,7 @@ const Class = () => {
 	const navigate = useNavigate()
 	useEffect(() => {
 		getClasses()
-	}, [!classes.length])
+	}, [])
 
 	const getClasses = async () => {
 		setFetching(true)

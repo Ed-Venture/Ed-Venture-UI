@@ -8,7 +8,9 @@ import { auth } from "../firebase"
 import { fetchUserByEmail } from "../context/DataContext"
 const Sidebar = ({ showNews, setShowNews }) => {
 	const [displayName, setDisplayName] = useState("")
-	useEffect(() => () => getDetails(), [showNews])
+	useEffect(() => {
+		getDetails()
+	}, [showNews])
 	const getDetails = async () => {
 		let user = auth.currentUser
 		let displayName = user.displayName

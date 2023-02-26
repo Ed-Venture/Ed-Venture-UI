@@ -153,3 +153,13 @@ export const createAssignment = async data => {
 	})
 	return docRef.id
 }
+
+export const submitResponse = async data => {
+	console.log("Here")
+	const { assignmentId, fileUrl } = data
+	const assignment = doc(db, "assignments", assignmentId)
+	await updateDoc(assignment, {
+		responses: [...assignment.responses, fileUrl],
+	})
+	return true
+}

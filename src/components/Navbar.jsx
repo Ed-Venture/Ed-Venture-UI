@@ -3,7 +3,7 @@ import React from "react"
 import { RxHamburgerMenu, RxDoubleArrowLeft, RxPlus } from "react-icons/rx"
 import { NavLink, useNavigate } from "react-router-dom"
 import { useState } from "react"
-import CreateClass from "./CreateClass"
+import CreateClass from "./Createclass"
 import { auth } from "../firebase"
 
 export default function Navbar({ setShowNews, showNews }) {
@@ -56,7 +56,7 @@ export default function Navbar({ setShowNews, showNews }) {
 
 				{popp && <Joinclass popp={setPopp} />}
 				<div className={`px-5 pt-2 ${location.pathname != "/classes" ? "hidden" : "block"}`}>
-					<RxPlus onClick={handlePop} className="cursor-pointer " />
+					<RxPlus onClick={handlePop} className="cursor-pointer" />
 				</div>
 				{pop && <CreateClass pop={setPop} />}
 			</div>

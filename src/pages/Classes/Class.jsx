@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import {  useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { fetchClassesByUser, fetchClassesEnrolled, fetchUserByEmail } from "../../context/DataContext"
 import { auth } from "../../firebase"
 const Class = () => {
@@ -41,10 +41,15 @@ const Class = () => {
 		<div className="container flex flex-wrap max-w-full">
 			{classes.length ? (
 				classes.map(class_ => (
-					<div className="w-96 h-32 bg-gray-300 m-3 my-24 rounded-md relative hover:shadow-2xl" onClick={() => handleClick(class_)} key={class_.id}>
-						<div className="p-3">
-							<div className="text-xl">{class_.name}</div>
-							<div>{class_.section}</div>
+					<div className="w-96 h-32 bg-gray-300 m-3 my-24 rounded-md relative hover:shadow-2xl cursor-pointer" onClick={() => handleClick(class_)} key={class_.id}>
+						<div style={{ display: "flex", justifyContent:"space-between" }}>
+							<div className="p-3">
+								<div className="text-xl">{class_.name}</div>
+								<div>{class_.section}</div>
+							</div>
+							<div className="p-3 text-2xl pr-10">
+								⚙️
+							</div>
 						</div>
 						<div className="rounded-full bg-green-400 w-16 h-16 absolute left-72 top-12 pl-7 pt-5 text-white">{class_?.userName[0]}</div>
 						<div className={`h-48 mt-2 ${class_.color} rounded-md hover:shadow-2xl`} />

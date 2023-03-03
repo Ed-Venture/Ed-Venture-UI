@@ -22,7 +22,7 @@
 -   [Tech Stack Used](#tech-stack-used)
 -   [Design](#design)
 -   [Future Scope](#future-scope)
--   [Contrbutions](#contrbutions)
+-   [Contributions](#contributions)
 -   [Team Members](#team-members)
 
 ![line]

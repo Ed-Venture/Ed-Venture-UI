@@ -84,7 +84,7 @@
 
 ![line]
 
-## Contrbutions
+## Contributions
 
 -   [Sayak Bhattacharjee] - Backend, Hosting
 -   [Pritam Kundu] - Backend, Documentation

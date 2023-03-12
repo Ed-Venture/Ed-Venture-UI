@@ -1,21 +1,57 @@
 import React, {useRef} from "react";
 import { FaFileUpload } from "react-icons/fa";
+import Upload from "../../context/Upload";
+import { useState } from "react";
+import { createAssignment, updateAssignment } from "../../context/DataContext";
 
 export default function CreateAss({createAssign}) {
     const inputRef = useRef(null);
+    const[file,setFile]=useState()
+    const c=JSON.parse(localStorage.getItem('class'))
+    const data={
+     userId:c.createdBy,
+     classId:c.id,
+     userName:c.userName
+    }
+    // const[assign,setAssign]=useState({
+
+    // })
 
   const handleClick = () => {
     inputRef.current.click();
   };
 
   const handleFileChange = event => {
-    const fileObj = event.target.files && event.target.files[0];
+    console.log("select")
+    const fileObj = event.target.files[0];
+    console.log(fileObj)
+    setFile(fileObj)
     if (!fileObj) {
       return;
     }
     event.target.value = null;
   };
   const handleCancel = () => createAssign(prev => !prev)
+  async function handleUpload(){
+    try{
+    const id=await createAssignment(data)
+    console.log(id)
+   await Upload({
+      folder:"assignments/",
+      classId:c.id+"/",
+      assignId:id+"/",
+      file:file
+    })
+    .then(async(res)=>{
+      console.log(res)
+    const stat=await updateAssignment(res,id)
+    console.log(stat)
+   })
+    }
+    catch(e){
+     alert(e)
+    }
+  }
   return (
     <div className="createclasspop absolute top-[6em] left-[5vw] flex flex-col h-[360px] w-72 z-[1000] bg-[#645CBC] box-content border rounded-[10px] min-[895px]:w-[36vw] min-[895px]:left-[30vw] p-5">
       <button className="flex text-4xl text-white items-center cursor-pointer absolute right-6 top-6 z-50" onClick={handleCancel}>
@@ -45,14 +81,14 @@ export default function CreateAss({createAssign}) {
       />
           <button
             type="button"
-            className=" bg-gray-300 dark:bg-blue-500 font-medium rounded-lg text-sm px-16 md:px-24 flex flex-nowrap pr-28 py-2 text-center hover:bg-gray-300/90 text-xl" onClick={handleClick}
+            className=" bg-gray-300 dark:bg-blue-500 font-medium rounded-lg px-16 md:px-24 flex flex-nowrap pr-28 py-2 text-center hover:bg-gray-300/90 text-xl" onClick={handleClick}
           >
             <FaFileUpload size={28} className="inline-block mr-4 mb-1 " />
             <div className="whitespace-nowrap">Upload PDF</div>
           </button>
         </div>
       </div>
-      <div className="flex justify-end mt-20 mr-7 text-2xl text-white hover:text-gray-200 hover:cursor-pointer">Upload</div>
+      <div className="flex justify-end mt-20 mr-7 text-2xl text-white hover:text-gray-200 hover:cursor-pointer" onClick={handleUpload}>Upload</div>
     </div>
   );
 }

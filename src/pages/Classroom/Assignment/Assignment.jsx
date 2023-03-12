@@ -4,7 +4,7 @@ import { FiPaperclip } from "react-icons/fi"
 import { AiOutlinePlus } from "react-icons/ai"
 import { useState } from "react"
 import SubmitAssign from "../../../components/Modal/SubmitAssign"
-import CreateAssignment from "../../../components/Modal/CreateAssignment"
+import CreateAss from "../../../components/Modal/CreateAss"
 import { fetchAssignments, fetchUserByEmail } from "../../../context/DataContext"
 import { auth } from "../../../firebase"
 
@@ -39,7 +39,7 @@ export default function Assignment() {
 					Create
 				</button>
 			)}
-			{createAssign && <CreateAssignment setCreateAssign={setCreateAssign} />}
+			{createAssign && <CreateAss/>}
 			{assignments.map((assignment, i) => (
 				<div className="h-36 bg-pink-100 my-7 rounded-md flex pt-2 md:pt-7 pl-6" key={i}>
 					<a href={assignment.fileUrl}>

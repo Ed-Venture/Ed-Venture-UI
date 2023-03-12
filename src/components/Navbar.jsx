@@ -28,7 +28,7 @@ export default function Navbar({ setShowNews, showNews }) {
 		auth.currentUser && (
 			<div className="w-full bg-[#645CBB] h-12 flex text-white pt-2 relative">
 				<div className="px-5 pt-2" onClick={() => setShowNews(!showNews)}>
-					<RxHamburgerMenu className="cursor-pointer" />
+					<RxHamburgerMenu className="cursor-pointer" size={70} />
 				</div>
 				{heading}
 				<div className={`flex pt-1 ${location.pathname == "/classes" ? "hidden" : "block"}`}>

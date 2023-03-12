@@ -7,6 +7,7 @@ import Quizzes from "./pages/Quiz/Quizzes/Quizzes"
 import Rank from "./pages/Quiz/Rank/Rank"
 import Score from "./pages/Quiz/Score/Score"
 import Navbar from "./components/Navbar"
+import AssignmentCheck from "./pages/Classroom/Assignment/assignmentcheck"
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
 import RiseLoader from "react-spinners/RiseLoader"
 
@@ -54,6 +55,7 @@ function App() {
 							<Route path="/classes/:id/stream" element={<Stream />} />
 							<Route path="/classes/:id/assignment" element={<Assignment />} />
 							<Route path="/classes/:id/people" element={<People />} />
+                            <Route path="/assign_check" element={<AssignmentCheck/>} />
 						</Routes>
 					</Router>
 				)}

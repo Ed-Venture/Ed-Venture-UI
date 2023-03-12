@@ -33,6 +33,7 @@ export default function Assignment() {
                 <FiPaperclip size={35} className="transition cursor-pointer duration-500 hover:scale-125"/>
             </div>
             {showAssign && <SubmitAssign showAssign={setShowAssign} />}
+            <button className="check-assign"> Check</button>
             <div className='text-slate-400 text-md md:text-xl pt-2'>
                 {info.date}
             </div>

@@ -132,4 +132,27 @@ export const fetchAnnouncements = async classId => {
 	assignments.forEach(doc => result.push({ id: doc.id, ...doc.data() }))
 	return result
 }
+export const createAssignment = async data => {
+	const { userId, classId, userName } = data
+	const docRef = await addDoc(collection(db, "assignments"), {
+		classId:classId,
+		createdBy: userId,
+		fileurl:"",
+		postedOn: serverTimestamp(),
+		responses:[],
+		marks:{},
+		userName:userName,
+	})
+	return docRef.id
+}
+export const updateAssignment = async (data,id) => {
+	try{
+	await updateDoc(doc(db,"assignments",id), {
+		fileurl:data,
+	})
+	return "updated"}
+	catch(e){
+		console.log(e)
+	}
+}
 export const deleteAnnouncement = async assignmentId => await deleteDoc(doc(db, "assignments", assignmentId))
